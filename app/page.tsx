@@ -166,12 +166,12 @@ function SectionDivider() {
 const SUPERPOWERS = [
   {
     icon: <LightbulbIcon />,
-    title: "Estrategia y Marca",
-    subtitle: "Entendemos tu negocio antes de tocar una sola campaña.",
+    title: "Estrategia de Marketing",
+    subtitle: "Primero entendemos, después ejecutamos. Nunca al revés.",
     bullets: [
-      "Diagnóstico completo de tu negocio",
-      "Research de mercado y competencia",
-      "Brief creativo y propuesta estratégica",
+      "Diagnóstico inicial de tu negocio y competencia",
+      "Research de mercado, buyer persona y oportunidades",
+      "Plan estratégico completo: qué hacer, dónde invertir, cómo medir",
     ],
   },
   {
@@ -186,12 +186,12 @@ const SUPERPOWERS = [
   },
   {
     icon: <ChatIcon />,
-    title: "CRM y Automatización",
-    subtitle: "Un bot que vende por vos mientras dormís.",
+    title: "Control de Leads 24/7",
+    subtitle: "IA monitoreando cada lead, todo el día, todos los días.",
     bullets: [
-      "Bot de WhatsApp que atiende 24/7",
-      "Cada lead se registra y clasifica automáticamente",
-      "Seguimiento automático — ningún lead se pierde",
+      "Bot de WhatsApp atiende y califica leads al instante",
+      "Cada lead entra al CRM y se asigna automáticamente",
+      "Follow-up inteligente — si nadie responde, la IA insiste",
     ],
   },
   {
@@ -571,57 +571,91 @@ function AppFrame({ title, activeNav, children }: { title: string; activeNav: nu
 function StrategyMockup() {
   return (
     <div className="pulso-fade-up w-full max-w-xl mx-auto" style={{ transitionDelay: "200ms" }}>
-      <AppFrame title="impulso — Diagnóstico" activeNav={1}>
+      <AppFrame title="impulso — Estrategia" activeNav={1}>
         <div className="p-4">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <h4 className="text-sm font-bold text-[#0F172A]">Tu Negocio S.L.</h4>
-                <span className="text-[10px] text-[#94A3B8]">Diagnostico completado — 12 jun 2026</span>
-              </div>
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534]">Completado</span>
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h4 className="text-sm font-bold text-[#0F172A]">Tu Negocio S.L.</h4>
+              <span className="text-[10px] text-[#94A3B8]">Plan estratégico activo</span>
             </div>
-            <div className="grid grid-cols-3 gap-2 mb-3">
-              <div className="rounded-lg p-2.5 bg-white" style={{ border: "1px solid #F1F5F9" }}>
-                <div className="text-[9px] font-semibold uppercase tracking-wider text-[#94A3B8]">Presencia digital</div>
-                <div className="flex items-center gap-1.5 mt-1.5">
-                  <div className="flex gap-[2px] flex-1">
-                    {[1,2,3,4,5,6,7,8,9,10].map(n => (
-                      <div key={n} className="h-3 flex-1 rounded-sm" style={{ background: n <= 3 ? "#EF4444" : "#E2E8F0" }} />
-                    ))}
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534]">En ejecución</span>
+          </div>
+          {/* Progress timeline */}
+          <div className="flex items-center gap-0 mb-4">
+            {[
+              { label: "Diagnóstico", done: true },
+              { label: "Research", done: true },
+              { label: "Estrategia", done: true },
+              { label: "Ejecución", active: true },
+            ].map((step, i) => (
+              <div key={step.label} className="flex-1 flex flex-col items-center relative">
+                <div className="flex items-center w-full">
+                  {i > 0 && <div className="flex-1 h-0.5" style={{ background: step.done || step.active ? "#437AEF" : "#E2E8F0" }} />}
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style={{
+                    background: step.done ? "#437AEF" : step.active ? "white" : "#E2E8F0",
+                    border: step.active ? "2px solid #437AEF" : "none",
+                  }}>
+                    {step.done && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>}
+                    {step.active && <div className="w-2 h-2 rounded-full bg-[#437AEF]" />}
                   </div>
-                  <span className="text-xs font-bold text-[#EF4444]">3/10</span>
+                  {i < 3 && <div className="flex-1 h-0.5" style={{ background: i < 2 ? "#437AEF" : "#E2E8F0" }} />}
                 </div>
+                <span className="text-[8px] font-semibold mt-1" style={{ color: step.done || step.active ? "#437AEF" : "#94A3B8" }}>{step.label}</span>
               </div>
-              <div className="rounded-lg p-2.5 bg-white" style={{ border: "1px solid #F1F5F9" }}>
-                <div className="text-[9px] font-semibold uppercase tracking-wider text-[#94A3B8]">SEO</div>
-                <div className="text-sm font-bold text-[#F59E0B] mt-1.5">Debil</div>
-              </div>
-              <div className="rounded-lg p-2.5 bg-white" style={{ border: "1px solid #F1F5F9" }}>
-                <div className="text-[9px] font-semibold uppercase tracking-wider text-[#94A3B8]">Redes</div>
-                <div className="text-sm font-bold text-[#EF4444] mt-1.5">Sin estrategia</div>
-              </div>
+            ))}
+          </div>
+          {/* Diagnostic summary */}
+          <div className="rounded-lg p-3 bg-white mb-2" style={{ border: "1px solid #F1F5F9" }}>
+            <div className="flex items-center gap-2 mb-2">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span className="text-[10px] font-bold text-[#0F172A]">Diagnóstico inicial</span>
             </div>
-            <div className="rounded-lg p-3 bg-white mb-2" style={{ border: "1px solid #F1F5F9" }}>
-              <div className="text-[10px] font-semibold text-[#0F172A] mb-2">5 competidores analizados</div>
-              <div className="space-y-1.5">
-                {["Competidor A","Competidor B","Competidor C","Competidor D","Competidor E"].map((c, i) => (
-                  <div key={c} className="flex items-center gap-2">
-                    <span className="text-[9px] text-[#94A3B8] w-20 truncate">{c}</span>
-                    <div className="flex-1 h-2 rounded-full bg-[#F1F5F9]">
-                      <div className="h-full rounded-full" style={{ background: i === 0 ? "#437AEF" : i < 3 ? "#94A3B8" : "#CBD5E1", width: `${[82,68,55,40,30][i]}%` }} />
-                    </div>
-                  </div>
-                ))}
+            <div className="grid grid-cols-3 gap-2">
+              <div className="rounded px-2 py-1.5" style={{ background: "#FEF2F2" }}>
+                <div className="text-[8px] text-[#94A3B8]">Presencia</div>
+                <div className="text-xs font-bold text-[#EF4444]">3/10</div>
               </div>
-            </div>
-            <div className="rounded-lg px-3 py-2 flex items-center justify-between" style={{ background: "#F0FDF4", border: "1px solid #BBF7D0" }}>
-              <div className="flex items-center gap-2">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-                <span className="text-[10px] font-medium text-[#166534]">8 oportunidades detectadas</span>
+              <div className="rounded px-2 py-1.5" style={{ background: "#FFF7ED" }}>
+                <div className="text-[8px] text-[#94A3B8]">SEO</div>
+                <div className="text-xs font-bold text-[#F59E0B]">Débil</div>
               </div>
-              <span className="text-[10px] font-medium text-[#16A34A]">Ver plan →</span>
+              <div className="rounded px-2 py-1.5" style={{ background: "#F0FDF4" }}>
+                <div className="text-[8px] text-[#94A3B8]">Oportunidades</div>
+                <div className="text-xs font-bold text-[#22C55E]">8</div>
+              </div>
             </div>
           </div>
+          {/* Strategy plan */}
+          <div className="rounded-lg p-3 bg-white mb-2" style={{ border: "1px solid #F1F5F9" }}>
+            <div className="flex items-center gap-2 mb-2">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <span className="text-[10px] font-bold text-[#0F172A]">Plan estratégico</span>
+            </div>
+            <div className="space-y-1.5">
+              {[
+                { action: "Google Ads — Salud Visa España", budget: "$200/mes", status: "active" },
+                { action: "Meta Ads — Instagram + Facebook", budget: "$150/mes", status: "active" },
+                { action: "Landing optimizada + SEO", budget: "Incluido", status: "active" },
+                { action: "Bot WhatsApp + CRM", budget: "Incluido", status: "active" },
+              ].map(item => (
+                <div key={item.action} className="flex items-center justify-between rounded px-2 py-1.5" style={{ background: "#F8FAFC" }}>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
+                    <span className="text-[10px] text-[#0F172A]">{item.action}</span>
+                  </div>
+                  <span className="text-[9px] font-medium text-[#437AEF]">{item.budget}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Research insight */}
+          <div className="rounded-lg px-3 py-2 flex items-center justify-between" style={{ background: "#EFF6FF", border: "1px solid #BFDBFE" }}>
+            <div className="flex items-center gap-2">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span className="text-[10px] font-medium text-[#1E40AF]">Research: 5 competidores · 3 buyer personas · TAM $2.4M</span>
+            </div>
+          </div>
+        </div>
       </AppFrame>
     </div>
   );
@@ -705,85 +739,62 @@ function GoogleAdMockup() {
 function CRMMockup() {
   return (
     <div className="pulso-fade-up w-full max-w-xl mx-auto" style={{ transitionDelay: "200ms" }}>
-      <AppFrame title="impulso — CRM" activeNav={3}>
+      <AppFrame title="impulso — Control 24/7" activeNav={3}>
         <div className="p-3">
-              <div className="flex gap-2 overflow-hidden" style={{ minHeight: 260 }}>
-                {/* Nuevo */}
-                <div className="flex-1 rounded-lg p-2" style={{ background: "#FFFBEB", border: "1px solid #FDE68A", minWidth: 0 }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[9px] font-bold text-[#92400E] uppercase tracking-wider">Nuevo</span>
-                    <span className="text-[9px] font-bold text-[#92400E] bg-[#FDE68A] rounded-full px-1.5">3</span>
-                  </div>
-                  <div className="space-y-1.5">
-                    {[{n:"Maria G.",p:"Salud Visa",t:"2 min",c:"#F59E0B"},{n:"Juan R.",p:"RC Medica",t:"15 min",c:"#F59E0B"}].map(l => (
-                      <div key={l.n} className="rounded bg-white p-1.5 flex items-center gap-1.5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
-                        <div className="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold text-white flex-shrink-0" style={{ background: l.c }}>{l.n[0]}</div>
-                        <div className="min-w-0">
-                          <div className="text-[9px] font-semibold text-[#0F172A] truncate">{l.n}</div>
-                          <div className="text-[8px] text-[#94A3B8] truncate">{l.p} · {l.t}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                {/* Calificado */}
-                <div className="flex-1 rounded-lg p-2" style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", minWidth: 0 }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[9px] font-bold text-[#1E40AF] uppercase tracking-wider">Calificado</span>
-                    <span className="text-[9px] font-bold text-[#1E40AF] bg-[#BFDBFE] rounded-full px-1.5">5</span>
-                  </div>
-                  <div className="space-y-1.5">
-                    {[{n:"Carlos R.",p:"RC Medica",t:"1h",c:"#437AEF"},{n:"Laura D.",p:"Salud Visa",t:"3h",c:"#437AEF"}].map(l => (
-                      <div key={l.n} className="rounded bg-white p-1.5 flex items-center gap-1.5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
-                        <div className="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold text-white flex-shrink-0" style={{ background: l.c }}>{l.n[0]}</div>
-                        <div className="min-w-0">
-                          <div className="text-[9px] font-semibold text-[#0F172A] truncate">{l.n}</div>
-                          <div className="text-[8px] text-[#94A3B8] truncate">{l.p} · {l.t}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                {/* Contactado */}
-                <div className="flex-1 rounded-lg p-2" style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", minWidth: 0 }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[9px] font-bold text-[#166534] uppercase tracking-wider">Contactado</span>
-                    <span className="text-[9px] font-bold text-[#166534] bg-[#BBF7D0] rounded-full px-1.5">8</span>
-                  </div>
-                  <div className="space-y-1.5">
-                    <div className="rounded bg-white p-1.5 flex items-center gap-1.5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
-                      <div className="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold text-white flex-shrink-0" style={{ background: "#22C55E" }}>P</div>
-                      <div className="min-w-0">
-                        <div className="text-[9px] font-semibold text-[#0F172A] truncate">Pedro M.</div>
-                        <div className="text-[8px] text-[#94A3B8] truncate">Salud Visa · ayer</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* Cerrado */}
-                <div className="flex-1 rounded-lg p-2" style={{ background: "#FAF5FF", border: "1px solid #E9D5FF", minWidth: 0 }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[9px] font-bold text-[#7C3AED] uppercase tracking-wider">Cerrado</span>
-                    <span className="text-[9px] font-bold text-[#7C3AED] bg-[#E9D5FF] rounded-full px-1.5">12</span>
-                  </div>
-                  <div className="space-y-1.5">
-                    <div className="rounded bg-white p-1.5 flex items-center gap-1.5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
-                      <div className="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold text-white flex-shrink-0" style={{ background: "#7C3AED" }}>
-                        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
-                      <div className="min-w-0">
-                        <div className="text-[9px] font-semibold text-[#0F172A] truncate">Ana L.</div>
-                        <div className="text-[8px] text-[#94A3B8] truncate">Salud Visa · cerrado</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-2 rounded-lg px-3 py-1.5 flex items-center gap-2" style={{ background: "#DCFCE7", border: "1px solid #BBF7D0" }}>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .611.611l4.458-1.495A11.96 11.96 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-                <span className="text-[9px] font-medium text-[#166534]">Valentina atendió 34 leads hoy</span>
-              </div>
+          {/* Status bar */}
+          <div className="flex items-center justify-between mb-3 rounded-lg px-3 py-2" style={{ background: "#F0FDF4", border: "1px solid #BBF7D0" }}>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
+              <span className="text-[10px] font-bold text-[#166534]">Sistema activo</span>
             </div>
+            <span className="text-[9px] text-[#16A34A]">Ultimo evento: hace 2 min</span>
+          </div>
+          {/* Live feed */}
+          <div className="rounded-lg bg-white mb-3" style={{ border: "1px solid #F1F5F9" }}>
+            <div className="px-3 py-2 flex items-center justify-between" style={{ borderBottom: "1px solid #F1F5F9" }}>
+              <span className="text-[10px] font-bold text-[#0F172A]">Feed en vivo</span>
+              <span className="text-[8px] font-medium text-[#94A3B8]">HOY</span>
+            </div>
+            <div className="divide-y divide-[#F8FAFC]">
+              {[
+                { icon: "bot", text: "Valentina calificó a Maria G.", detail: "Salud Visa · derivó a Juan Pablo", time: "14:32", color: "#25D366" },
+                { icon: "alert", text: "Follow-up enviado a Pedro M.", detail: "Sin respuesta hace 6h · reintento #2", time: "14:15", color: "#F59E0B" },
+                { icon: "lead", text: "Nuevo lead desde Google Ads", detail: "RC Medica · asignado automáticamente", time: "13:58", color: "#437AEF" },
+                { icon: "check", text: "Carlos R. respondió al asesor", detail: "Salud Visa · movido a Contactado", time: "13:41", color: "#22C55E" },
+                { icon: "bot", text: "Valentina atendió consulta", detail: "Pregunta sobre cobertura dental", time: "13:22", color: "#25D366" },
+              ].map(event => (
+                <div key={event.time} className="px-3 py-2 flex items-start gap-2">
+                  <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: `${event.color}15` }}>
+                    {event.icon === "bot" && <svg width="10" height="10" viewBox="0 0 24 24" fill={event.color}><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7v1H3v-1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2zM4 16h16v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2z"/></svg>}
+                    {event.icon === "alert" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={event.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>}
+                    {event.icon === "lead" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={event.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>}
+                    {event.icon === "check" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={event.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[10px] font-semibold text-[#0F172A]">{event.text}</div>
+                    <div className="text-[9px] text-[#94A3B8]">{event.detail}</div>
+                  </div>
+                  <span className="text-[8px] text-[#CBD5E1] flex-shrink-0">{event.time}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Stats row */}
+          <div className="grid grid-cols-3 gap-2">
+            <div className="rounded-lg p-2 text-center" style={{ background: "#EFF6FF", border: "1px solid #BFDBFE" }}>
+              <div className="text-lg font-extrabold text-[#437AEF]">34</div>
+              <div className="text-[8px] font-semibold text-[#1E40AF]">Leads hoy</div>
+            </div>
+            <div className="rounded-lg p-2 text-center" style={{ background: "#F0FDF4", border: "1px solid #BBF7D0" }}>
+              <div className="text-lg font-extrabold text-[#22C55E]">28</div>
+              <div className="text-[8px] font-semibold text-[#166534]">Atendidos</div>
+            </div>
+            <div className="rounded-lg p-2 text-center" style={{ background: "#FFF7ED", border: "1px solid #FED7AA" }}>
+              <div className="text-lg font-extrabold text-[#F59E0B]">6</div>
+              <div className="text-[8px] font-semibold text-[#92400E]">Pendientes</div>
+            </div>
+          </div>
+        </div>
       </AppFrame>
     </div>
   );
