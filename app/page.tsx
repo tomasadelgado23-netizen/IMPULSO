@@ -163,30 +163,46 @@ function SectionDivider() {
   );
 }
 
-const FEATURES = [
+const SUPERPOWERS = [
   {
     icon: <LightbulbIcon />,
     title: "Estrategia y Marca",
-    description:
-      "Diagnóstico, brief creativo y research de mercado con IA. Tu marca comunica lo que vale.",
+    subtitle: "Entendemos tu negocio antes de tocar una sola campaña.",
+    bullets: [
+      "Diagnóstico completo de tu negocio",
+      "Research de mercado y competencia",
+      "Brief creativo y propuesta estratégica",
+    ],
   },
   {
     icon: <RocketIcon />,
     title: "Marketing Digital con IA",
-    description:
-      "Campañas en Google y Meta, landings optimizadas y SEO continuo. Todo gestionado y medido.",
+    subtitle: "Tus anuncios, optimizados y medidos por inteligencia artificial.",
+    bullets: [
+      "Campañas en Google y Meta optimizadas por IA",
+      "Landing pages que convierten",
+      "SEO para que te encuentren orgánicamente",
+    ],
   },
   {
     icon: <ChatIcon />,
     title: "CRM y Automatización",
-    description:
-      "Bot de WhatsApp 24/7, pipeline de leads y seguimiento automático. Ningún lead se pierde.",
+    subtitle: "Un bot que vende por vos mientras dormís.",
+    bullets: [
+      "Bot de WhatsApp que atiende 24/7",
+      "Cada lead se registra y clasifica automáticamente",
+      "Seguimiento automático — ningún lead se pierde",
+    ],
   },
   {
     icon: <ChartIcon />,
     title: "Panel de Control",
-    description:
-      "ROAS, conversiones, leads y métricas en tiempo real. Sabes exactamente qué funciona.",
+    subtitle: "Todo lo que pasa con tu marketing, en una sola pantalla.",
+    bullets: [
+      "Métricas en tiempo real de todas tus campañas",
+      "ROAS, conversiones, leads y costo por lead",
+      "Sabes exactamente qué funciona y qué no",
+    ],
   },
 ];
 
@@ -516,53 +532,403 @@ function HeroSection() {
   );
 }
 
+function AppFrame({ title, activeNav, children }: { title: string; activeNav: number; children: React.ReactNode }) {
+  const navIcons = [
+    "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4",
+    "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0h6",
+    "M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z",
+    "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
+    "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1v-2z",
+  ];
+  return (
+    <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06)" }}>
+      <div className="flex items-center gap-2 px-4 py-2.5" style={{ background: "#0A1C43" }}>
+        <span className="block h-[9px] w-[9px] rounded-full bg-[#FF5F57]" />
+        <span className="block h-[9px] w-[9px] rounded-full bg-[#FEBC2E]" />
+        <span className="block h-[9px] w-[9px] rounded-full bg-[#28C840]" />
+        <span className="ml-3 text-[11px] font-medium" style={{ color: "rgba(255,255,255,0.45)" }}>{title}</span>
+      </div>
+      <div className="flex" style={{ background: "#F8FAFC" }}>
+        <div className="hidden md:flex flex-col py-3 px-1.5 gap-1" style={{ width: 52, background: "#0F1D35" }}>
+          <div className="flex items-center justify-center mb-2 py-1">
+            <svg width="16" height="13" viewBox="0 0 30 24" fill="none">
+              <path d="M7 16L15 6l8 10" stroke="rgba(255,255,255,0.3)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M7 20L15 10l8 10" stroke="rgba(255,255,255,0.7)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+          {navIcons.map((d, i) => (
+            <div key={i} className="flex items-center justify-center rounded-lg py-2" style={{ background: i === activeNav ? "rgba(67,122,239,0.2)" : "transparent" }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={i === activeNav ? "#437AEF" : "rgba(255,255,255,0.3)"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d={d}/></svg>
+            </div>
+          ))}
+        </div>
+        <div className="flex-1 min-w-0">{children}</div>
+      </div>
+    </div>
+  );
+}
+
+function StrategyMockup() {
+  return (
+    <div className="pulso-fade-up w-full max-w-xl mx-auto" style={{ transitionDelay: "200ms" }}>
+      <AppFrame title="impulso — Diagnóstico" activeNav={1}>
+        <div className="p-4">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h4 className="text-sm font-bold text-[#0F172A]">Tu Negocio S.L.</h4>
+                <span className="text-[10px] text-[#94A3B8]">Diagnostico completado — 12 jun 2026</span>
+              </div>
+              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534]">Completado</span>
+            </div>
+            <div className="grid grid-cols-3 gap-2 mb-3">
+              <div className="rounded-lg p-2.5 bg-white" style={{ border: "1px solid #F1F5F9" }}>
+                <div className="text-[9px] font-semibold uppercase tracking-wider text-[#94A3B8]">Presencia digital</div>
+                <div className="flex items-center gap-1.5 mt-1.5">
+                  <div className="flex gap-[2px] flex-1">
+                    {[1,2,3,4,5,6,7,8,9,10].map(n => (
+                      <div key={n} className="h-3 flex-1 rounded-sm" style={{ background: n <= 3 ? "#EF4444" : "#E2E8F0" }} />
+                    ))}
+                  </div>
+                  <span className="text-xs font-bold text-[#EF4444]">3/10</span>
+                </div>
+              </div>
+              <div className="rounded-lg p-2.5 bg-white" style={{ border: "1px solid #F1F5F9" }}>
+                <div className="text-[9px] font-semibold uppercase tracking-wider text-[#94A3B8]">SEO</div>
+                <div className="text-sm font-bold text-[#F59E0B] mt-1.5">Debil</div>
+              </div>
+              <div className="rounded-lg p-2.5 bg-white" style={{ border: "1px solid #F1F5F9" }}>
+                <div className="text-[9px] font-semibold uppercase tracking-wider text-[#94A3B8]">Redes</div>
+                <div className="text-sm font-bold text-[#EF4444] mt-1.5">Sin estrategia</div>
+              </div>
+            </div>
+            <div className="rounded-lg p-3 bg-white mb-2" style={{ border: "1px solid #F1F5F9" }}>
+              <div className="text-[10px] font-semibold text-[#0F172A] mb-2">5 competidores analizados</div>
+              <div className="space-y-1.5">
+                {["Competidor A","Competidor B","Competidor C","Competidor D","Competidor E"].map((c, i) => (
+                  <div key={c} className="flex items-center gap-2">
+                    <span className="text-[9px] text-[#94A3B8] w-20 truncate">{c}</span>
+                    <div className="flex-1 h-2 rounded-full bg-[#F1F5F9]">
+                      <div className="h-full rounded-full" style={{ background: i === 0 ? "#437AEF" : i < 3 ? "#94A3B8" : "#CBD5E1", width: `${[82,68,55,40,30][i]}%` }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-lg px-3 py-2 flex items-center justify-between" style={{ background: "#F0FDF4", border: "1px solid #BBF7D0" }}>
+              <div className="flex items-center gap-2">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <span className="text-[10px] font-medium text-[#166534]">8 oportunidades detectadas</span>
+              </div>
+              <span className="text-[10px] font-medium text-[#16A34A]">Ver plan →</span>
+            </div>
+          </div>
+      </AppFrame>
+    </div>
+  );
+}
+
+function GoogleAdMockup() {
+  return (
+    <div className="pulso-fade-up w-full max-w-xl mx-auto" style={{ transitionDelay: "200ms" }}>
+      <AppFrame title="impulso — Campañas" activeNav={2}>
+        <div>
+            <div className="flex border-b" style={{ borderColor: "#E2E8F0" }}>
+              {["Google Ads", "Meta Ads", "SEO"].map((tab, i) => (
+                <button key={tab} className="px-4 py-2.5 text-[11px] font-semibold" style={{ color: i === 0 ? "#437AEF" : "#94A3B8", borderBottom: i === 0 ? "2px solid #437AEF" : "2px solid transparent", background: i === 0 ? "white" : "transparent" }}>{tab}</button>
+              ))}
+            </div>
+            <div className="p-4">
+              <div className="rounded-lg bg-white mb-2" style={{ border: "1px solid #F1F5F9" }}>
+                <div className="px-3 py-2.5 flex items-center justify-between" style={{ borderBottom: "1px solid #F8FAFC" }}>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-semibold text-[#0F172A]">Salud Visa Espana</span>
+                    <span className="text-[8px] font-semibold px-1.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534]">Active</span>
+                  </div>
+                </div>
+                <div className="px-3 py-2 flex items-center gap-4">
+                  <div>
+                    <span className="text-base font-extrabold text-[#0F172A]">847</span>
+                    <span className="text-[9px] text-[#94A3B8] ml-1">clicks</span>
+                  </div>
+                  <div>
+                    <span className="text-base font-extrabold text-[#22C55E]">6.8%</span>
+                    <span className="text-[9px] text-[#94A3B8] ml-1">CTR</span>
+                  </div>
+                  <div>
+                    <span className="text-base font-extrabold text-[#437AEF]">$0.23</span>
+                    <span className="text-[9px] text-[#94A3B8] ml-1">CPC</span>
+                  </div>
+                  <div className="ml-auto">
+                    <svg width="60" height="20" viewBox="0 0 60 20" fill="none"><polyline points="0,16 10,12 20,14 30,8 40,6 50,3 60,1" stroke="#22C55E" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-lg bg-white mb-3" style={{ border: "1px solid #F1F5F9" }}>
+                <div className="px-3 py-2.5 flex items-center justify-between" style={{ borderBottom: "1px solid #F8FAFC" }}>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-semibold text-[#0F172A]">RC Medica Chile</span>
+                    <span className="text-[8px] font-semibold px-1.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534]">Active</span>
+                  </div>
+                </div>
+                <div className="px-3 py-2 flex items-center gap-4">
+                  <div>
+                    <span className="text-base font-extrabold text-[#0F172A]">312</span>
+                    <span className="text-[9px] text-[#94A3B8] ml-1">clicks</span>
+                  </div>
+                  <div>
+                    <span className="text-base font-extrabold text-[#22C55E]">5.2%</span>
+                    <span className="text-[9px] text-[#94A3B8] ml-1">CTR</span>
+                  </div>
+                  <div>
+                    <span className="text-base font-extrabold text-[#437AEF]">$0.31</span>
+                    <span className="text-[9px] text-[#94A3B8] ml-1">CPC</span>
+                  </div>
+                  <div className="ml-auto">
+                    <svg width="60" height="20" viewBox="0 0 60 20" fill="none"><polyline points="0,14 10,16 20,10 30,12 40,8 50,5 60,4" stroke="#22C55E" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-lg px-3 py-2 flex items-center gap-3" style={{ background: "#EFF6FF", border: "1px solid #BFDBFE" }}>
+                <svg width="14" height="14" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#1877F2"/><path d="M33 24h-5v-3c0-1.4.6-2 2-2h3v-5h-4c-4 0-6 2.5-6 6v4h-4v5h4v13h5V29h4l1-5z" fill="white"/></svg>
+                <div className="flex items-center gap-3">
+                  <span className="text-[10px] font-semibold text-[#1E40AF]">Meta Ads:</span>
+                  <span className="text-[10px] text-[#475569]">Salud Visa IG — <strong>23.1K</strong> alcance · <strong>1,204</strong> clicks</span>
+                </div>
+              </div>
+            </div>
+          </div>
+      </AppFrame>
+    </div>
+  );
+}
+
+function CRMMockup() {
+  return (
+    <div className="pulso-fade-up w-full max-w-xl mx-auto" style={{ transitionDelay: "200ms" }}>
+      <AppFrame title="impulso — CRM" activeNav={3}>
+        <div className="p-3">
+              <div className="flex gap-2 overflow-hidden" style={{ minHeight: 260 }}>
+                {/* Nuevo */}
+                <div className="flex-1 rounded-lg p-2" style={{ background: "#FFFBEB", border: "1px solid #FDE68A", minWidth: 0 }}>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[9px] font-bold text-[#92400E] uppercase tracking-wider">Nuevo</span>
+                    <span className="text-[9px] font-bold text-[#92400E] bg-[#FDE68A] rounded-full px-1.5">3</span>
+                  </div>
+                  <div className="space-y-1.5">
+                    {[{n:"Maria G.",p:"Salud Visa",t:"2 min",c:"#F59E0B"},{n:"Juan R.",p:"RC Medica",t:"15 min",c:"#F59E0B"}].map(l => (
+                      <div key={l.n} className="rounded bg-white p-1.5 flex items-center gap-1.5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
+                        <div className="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold text-white flex-shrink-0" style={{ background: l.c }}>{l.n[0]}</div>
+                        <div className="min-w-0">
+                          <div className="text-[9px] font-semibold text-[#0F172A] truncate">{l.n}</div>
+                          <div className="text-[8px] text-[#94A3B8] truncate">{l.p} · {l.t}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Calificado */}
+                <div className="flex-1 rounded-lg p-2" style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", minWidth: 0 }}>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[9px] font-bold text-[#1E40AF] uppercase tracking-wider">Calificado</span>
+                    <span className="text-[9px] font-bold text-[#1E40AF] bg-[#BFDBFE] rounded-full px-1.5">5</span>
+                  </div>
+                  <div className="space-y-1.5">
+                    {[{n:"Carlos R.",p:"RC Medica",t:"1h",c:"#437AEF"},{n:"Laura D.",p:"Salud Visa",t:"3h",c:"#437AEF"}].map(l => (
+                      <div key={l.n} className="rounded bg-white p-1.5 flex items-center gap-1.5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
+                        <div className="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold text-white flex-shrink-0" style={{ background: l.c }}>{l.n[0]}</div>
+                        <div className="min-w-0">
+                          <div className="text-[9px] font-semibold text-[#0F172A] truncate">{l.n}</div>
+                          <div className="text-[8px] text-[#94A3B8] truncate">{l.p} · {l.t}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Contactado */}
+                <div className="flex-1 rounded-lg p-2" style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", minWidth: 0 }}>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[9px] font-bold text-[#166534] uppercase tracking-wider">Contactado</span>
+                    <span className="text-[9px] font-bold text-[#166534] bg-[#BBF7D0] rounded-full px-1.5">8</span>
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="rounded bg-white p-1.5 flex items-center gap-1.5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
+                      <div className="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold text-white flex-shrink-0" style={{ background: "#22C55E" }}>P</div>
+                      <div className="min-w-0">
+                        <div className="text-[9px] font-semibold text-[#0F172A] truncate">Pedro M.</div>
+                        <div className="text-[8px] text-[#94A3B8] truncate">Salud Visa · ayer</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* Cerrado */}
+                <div className="flex-1 rounded-lg p-2" style={{ background: "#FAF5FF", border: "1px solid #E9D5FF", minWidth: 0 }}>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[9px] font-bold text-[#7C3AED] uppercase tracking-wider">Cerrado</span>
+                    <span className="text-[9px] font-bold text-[#7C3AED] bg-[#E9D5FF] rounded-full px-1.5">12</span>
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="rounded bg-white p-1.5 flex items-center gap-1.5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
+                      <div className="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold text-white flex-shrink-0" style={{ background: "#7C3AED" }}>
+                        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-[9px] font-semibold text-[#0F172A] truncate">Ana L.</div>
+                        <div className="text-[8px] text-[#94A3B8] truncate">Salud Visa · cerrado</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-2 rounded-lg px-3 py-1.5 flex items-center gap-2" style={{ background: "#DCFCE7", border: "1px solid #BBF7D0" }}>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .611.611l4.458-1.495A11.96 11.96 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+                <span className="text-[9px] font-medium text-[#166534]">Valentina atendió 34 leads hoy</span>
+              </div>
+            </div>
+      </AppFrame>
+    </div>
+  );
+}
+
+function DashboardMockup() {
+  return (
+    <div className="pulso-fade-up w-full max-w-xl mx-auto" style={{ transitionDelay: "200ms" }}>
+      <AppFrame title="impulso — Dashboard" activeNav={4}>
+        <div className="p-4">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="text-sm font-bold text-[#0F172A]">Resumen</h4>
+              <div className="flex items-center gap-1.5 rounded-lg px-2.5 py-1 bg-white text-[10px] font-medium text-[#475569]" style={{ border: "1px solid #E2E8F0" }}>
+                Ultimos 30 dias
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div className="grid grid-cols-4 gap-2 mb-3">
+              {[
+                {label:"Leads",val:"128",change:"+12%",up:true},
+                {label:"ROAS",val:"4.2x",change:"+0.8",up:true},
+                {label:"Costo/Lead",val:"$12",change:"-$3",up:true},
+                {label:"Conversiones",val:"34",change:"+18%",up:true},
+              ].map(kpi => (
+                <div key={kpi.label} className="rounded-lg p-2.5 bg-white" style={{ border: "1px solid #F1F5F9" }}>
+                  <div className="text-[8px] font-semibold uppercase tracking-wider text-[#94A3B8]">{kpi.label}</div>
+                  <div className="text-lg font-extrabold text-[#0F172A] mt-0.5">{kpi.val}</div>
+                  <div className="flex items-center gap-0.5 mt-0.5">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points={kpi.up ? "23 6 13.5 15.5 8.5 10.5 1 18" : "23 18 13.5 8.5 8.5 13.5 1 6"}/></svg>
+                    <span className="text-[9px] font-medium text-[#22C55E]">{kpi.change}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-lg p-3 bg-white mb-2" style={{ border: "1px solid #F1F5F9" }}>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-semibold text-[#0F172A]">Leads ultimos 30 dias</span>
+                <span className="text-[9px] text-[#94A3B8]">Jun 2026</span>
+              </div>
+              <svg width="100%" height="60" viewBox="0 0 320 60" fill="none" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="chartGrad2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#437AEF" stopOpacity="0.12"/>
+                    <stop offset="100%" stopColor="#437AEF" stopOpacity="0"/>
+                  </linearGradient>
+                </defs>
+                <line x1="0" y1="15" x2="320" y2="15" stroke="#F1F5F9" strokeWidth="1"/>
+                <line x1="0" y1="30" x2="320" y2="30" stroke="#F1F5F9" strokeWidth="1"/>
+                <line x1="0" y1="45" x2="320" y2="45" stroke="#F1F5F9" strokeWidth="1"/>
+                <path d="M0 48 L40 40 L80 44 L120 30 L160 26 L200 18 L240 22 L280 10 L320 6 L320 60 L0 60 Z" fill="url(#chartGrad2)"/>
+                <polyline points="0,48 40,40 80,44 120,30 160,26 200,18 240,22 280,10 320,6" stroke="#437AEF" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="280" cy="10" r="3" fill="#437AEF"/>
+              </svg>
+            </div>
+            <div className="rounded-lg p-2.5 bg-white" style={{ border: "1px solid #F1F5F9" }}>
+              <div className="text-[10px] font-semibold text-[#0F172A] mb-1.5">Fuentes de trafico</div>
+              <div className="flex rounded-full overflow-hidden h-3">
+                <div style={{ width: "52%", background: "#4285F4" }} />
+                <div style={{ width: "35%", background: "#1877F2" }} />
+                <div style={{ width: "13%", background: "#22C55E" }} />
+              </div>
+              <div className="flex items-center gap-3 mt-1.5">
+                <div className="flex items-center gap-1"><div className="w-2 h-2 rounded-full" style={{ background: "#4285F4" }} /><span className="text-[9px] text-[#475569]">Google 52%</span></div>
+                <div className="flex items-center gap-1"><div className="w-2 h-2 rounded-full" style={{ background: "#1877F2" }} /><span className="text-[9px] text-[#475569]">Meta 35%</span></div>
+                <div className="flex items-center gap-1"><div className="w-2 h-2 rounded-full" style={{ background: "#22C55E" }} /><span className="text-[9px] text-[#475569]">Orgánico 13%</span></div>
+              </div>
+            </div>
+          </div>
+      </AppFrame>
+    </div>
+  );
+}
+
+function SuperpowerSection({ index, icon, title, subtitle, bullets, mockup }: {
+  index: number;
+  icon: React.ReactNode;
+  title: string;
+  subtitle: string;
+  bullets: string[];
+  mockup: React.ReactNode;
+}) {
+  const reversed = index % 2 === 1;
+  return (
+    <div
+      className={`flex flex-col gap-10 md:gap-16 items-center ${reversed ? "md:flex-row-reverse" : "md:flex-row"}`}
+      style={{ marginTop: index === 0 ? 0 : 48 }}
+    >
+      <div className="flex-1 pulso-fade-up" style={{ transitionDelay: `${index * 100}ms` }}>
+        <div className="flex h-14 w-14 items-center justify-center rounded-xl" style={{ background: "#E1EAFE" }}>
+          {icon}
+        </div>
+        <h3 className="mt-5 text-2xl font-extrabold text-[#0F172A] md:text-3xl">{title}</h3>
+        <p className="mt-3 text-lg text-[#475569]">{subtitle}</p>
+        <ul className="mt-6 space-y-3">
+          {bullets.map((b) => (
+            <li key={b} className="flex items-start gap-3">
+              <div className="mt-1.5 flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span className="text-base text-[#334155]">{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="flex-1 w-full">
+        {mockup}
+      </div>
+    </div>
+  );
+}
+
 function FeaturesSection() {
+  const mockups = [
+    <StrategyMockup key="strategy" />,
+    <GoogleAdMockup key="ad" />,
+    <CRMMockup key="crm" />,
+    <DashboardMockup key="dash" />,
+  ];
+
   return (
     <section id="superpoderes" className="px-6 py-20 md:py-28">
       <div className="mx-auto max-w-[1380px]">
         <div className="mx-auto max-w-2xl text-center">
-          <span
-            className="text-sm font-semibold uppercase tracking-widest text-[#437AEF]"
-          >
+          <span className="text-sm font-semibold uppercase tracking-widest text-[#437AEF]">
             4 superpoderes
           </span>
-          <h2
-            className="mt-3 text-3xl font-extrabold tracking-tight text-[#0F172A] md:text-4xl"
-          >
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0F172A] md:text-4xl">
             Todo lo que necesitas. Nada que no.
           </h2>
-          <p
-            className="mt-4 text-lg leading-relaxed text-[#475569]"
-          >
-            Cuatro módulos integrados que cubren cada etapa de tu marketing
-            digital.
+          <p className="mt-4 text-lg leading-relaxed text-[#475569]">
+            Cuatro módulos integrados que cubren cada etapa de tu marketing digital.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {FEATURES.map((f, i) => (
-            <div
-              key={f.title}
-              className="pulso-fade-up pulso-feature-card group rounded-2xl border bg-white p-8"
-              style={{ transitionDelay: `${i * 120}ms` }}
-            >
-              <div
-                className="flex h-14 w-14 items-center justify-center rounded-xl"
-                style={{ background: "#E1EAFE" }}
-              >
-                {f.icon}
-              </div>
-              <h3
-                className="mt-5 text-xl font-bold text-[#0F172A]"
-              >
-                {f.title}
-              </h3>
-              <p
-                className="mt-3 leading-relaxed text-[#475569]"
-              >
-                {f.description}
-              </p>
-            </div>
+        <div className="mt-16 md:mt-20">
+          {SUPERPOWERS.map((sp, i) => (
+            <SuperpowerSection
+              key={sp.title}
+              index={i}
+              icon={sp.icon}
+              title={sp.title}
+              subtitle={sp.subtitle}
+              bullets={sp.bullets}
+              mockup={mockups[i]}
+            />
           ))}
         </div>
       </div>
