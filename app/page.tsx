@@ -9,6 +9,7 @@ function LightbulbIcon() {
       height="32"
       viewBox="0 0 24 24"
       fill="none"
+      aria-hidden="true"
       stroke="#437AEF"
       strokeWidth="1.5"
       strokeLinecap="round"
@@ -28,6 +29,7 @@ function RocketIcon() {
       height="32"
       viewBox="0 0 24 24"
       fill="none"
+      aria-hidden="true"
       stroke="#437AEF"
       strokeWidth="1.5"
       strokeLinecap="round"
@@ -48,6 +50,7 @@ function ChatIcon() {
       height="32"
       viewBox="0 0 24 24"
       fill="none"
+      aria-hidden="true"
       stroke="#437AEF"
       strokeWidth="1.5"
       strokeLinecap="round"
@@ -61,26 +64,6 @@ function ChatIcon() {
   );
 }
 
-function ChartIcon() {
-  return (
-    <svg
-      width="32"
-      height="32"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#437AEF"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect x="3" y="3" width="18" height="18" rx="2" />
-      <path d="M7 17v-4" />
-      <path d="M11 17V9" />
-      <path d="M15 17v-6" />
-      <path d="M19 17v-2" />
-    </svg>
-  );
-}
 
 
 function useAnimatedCounter(end: number, duration: number, shouldStart: boolean, suffix: string = "", prefix: string = "") {
@@ -193,73 +176,47 @@ function SectionDivider() {
 const SUPERPOWERS = [
   {
     icon: <LightbulbIcon />,
-    title: "Estrategia de Marketing",
-    subtitle: "Primero entendemos, después ejecutamos. Nunca al revés.",
+    title: "Diagnóstico",
+    subtitle: "Analizamos la situación actual de tu empresa: ecosistema digital, procesos internos, cómo llegan los clientes, objetivos y dolores.",
     bullets: [
-      "Diagnóstico inicial de tu negocio y competencia",
-      "Research de mercado, buyer persona y oportunidades",
-      "Plan estratégico completo: qué hacer, dónde invertir, cómo medir",
+      "Ecosistema digital completo",
+      "Procesos comerciales internos",
+      "Canales de captación actuales",
+      "Objetivos y puntos de dolor",
     ],
   },
   {
     icon: <RocketIcon />,
-    title: "Marketing Digital con IA",
-    subtitle: "Tus anuncios, optimizados y medidos por inteligencia artificial.",
+    title: "Estrategia de Marketing",
+    subtitle: "Estudio de mercado, competencia, análisis del negocio y del cliente ideal. La estrategia nos da dos cosas: una forma clara de comunicar y un plan de acción concreto.",
     bullets: [
-      "Campañas en Google y Meta optimizadas por IA",
-      "Landing pages que convierten",
-      "SEO para que te encuentren orgánicamente",
+      "Qué decir y cómo decirlo",
+      "A quién dirigirse",
+      "Plan de acción con acciones concretas",
+      "Alineado a los recursos y objetivos reales",
     ],
   },
   {
     icon: <ChatIcon />,
-    title: "Control de Leads 24/7",
-    subtitle: "IA monitoreando cada lead, todo el día, todos los días.",
+    title: "Sistema Comercial potenciado con IA",
+    subtitle: "Ejecutamos el plan con un sistema comercial automatizado y personalizado al 100%.",
     bullets: [
-      "Bot de WhatsApp atiende y califica leads al instante",
-      "Cada lead entra al CRM y se asigna automáticamente",
-      "Follow-up inteligente — si nadie responde, la IA insiste",
-    ],
-  },
-  {
-    icon: <ChartIcon />,
-    title: "Panel de Control",
-    subtitle: "Todo lo que pasa con tu marketing, en una sola pantalla.",
-    bullets: [
-      "Métricas en tiempo real de todas tus campañas",
-      "ROAS, conversiones, leads y costo por lead",
-      "Sabes exactamente qué funciona y qué no",
+      "Ecosistema de marketing ordenado con comunicación profesional",
+      "Anuncios en Google y Meta con landing y SEO",
+      "IA que cualifica leads y los entrega al comercial",
+      "CRM con IA para optimizar el embudo",
+      "Panel de control con inversión, leads y resultados",
+      "Retroalimentación automática que optimiza los anuncios",
     ],
   },
 ];
 
 const STATS = [
-  { value: "98%", label: "de leads atendidos en menos de 2 min" },
-  { value: "+40%", label: "conversión con seguimiento automático" },
-  { value: "24/7", label: "tu bot vende mientras duermes" },
-  { value: "$0", label: "en equipo de marketing adicional" },
+  { value: "30+", label: "Años de experiencia" },
+  { value: "+500", label: "Empresas atendidas" },
+  { value: "24/7", label: "Sistema comercial activo" },
 ];
 
-const STEPS = [
-  {
-    number: "1",
-    title: "Diagnóstico gratuito",
-    description:
-      "Analizamos tu negocio, competencia y oportunidades digitales sin costo.",
-  },
-  {
-    number: "2",
-    title: "Activamos tu plataforma",
-    description:
-      "Configuramos campañas, CRM, bot y dashboard en menos de una semana.",
-  },
-  {
-    number: "3",
-    title: "Resultados desde el día 1",
-    description:
-      "Leads reales, métricas claras y optimización continua con IA.",
-  },
-];
 
 export default function PulsoPage() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -282,10 +239,6 @@ export default function PulsoPage() {
 
     return () => observerRef.current?.disconnect();
   }, []);
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <>
@@ -371,21 +324,6 @@ export default function PulsoPage() {
           background: linear-gradient(90deg, #798AFF, #437AEF);
         }
 
-        .pulso-steps-grid {
-          position: relative;
-        }
-        @media (min-width: 768px) {
-          .pulso-steps-grid::before {
-            content: '';
-            position: absolute;
-            top: 32px;
-            left: 20%;
-            right: 20%;
-            height: 2px;
-            background: repeating-linear-gradient(90deg, #CBD5E1 0px, #CBD5E1 8px, transparent 8px, transparent 16px);
-            z-index: 0;
-          }
-        }
 
         @keyframes pulso-gradient-shift {
           0% { background-position: 0% 50%; }
@@ -404,25 +342,6 @@ export default function PulsoPage() {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-        }
-
-        @keyframes pulso-float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-6px); }
-        }
-
-        .pulso-logo-float {
-          animation: pulso-float 4s ease-in-out infinite;
-        }
-
-        .mockup-step-fill {
-          opacity: 0;
-          transform: scale(0.8);
-          transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-        .mockup-step-fill.active {
-          opacity: 1;
-          transform: scale(1);
         }
 
         .mockup-slide-in {
@@ -455,10 +374,6 @@ export default function PulsoPage() {
 
         .mockup-bar-grow {
           transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .mockup-line-draw {
-          transition: stroke-dashoffset 1.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         @keyframes cursor-strategy {
@@ -508,49 +423,57 @@ export default function PulsoPage() {
           100% { top: 85%; left: 55%; opacity: 0; transform: scale(1); }
         }
 
-        @keyframes cursor-dashboard {
-          0% { top: 8%; left: 78%; opacity: 0; transform: scale(1); }
-          3% { top: 8%; left: 78%; opacity: 1; transform: scale(1); }
-          18% { top: 22%; left: 35%; transform: scale(1); }
-          25% { top: 22%; left: 65%; transform: scale(1); }
-          30% { top: 22%; left: 85%; transform: scale(1); }
-          40% { top: 22%; left: 85%; transform: scale(1); }
-          55% { top: 55%; left: 50%; transform: scale(1); }
-          60% { top: 60%; left: 65%; transform: scale(1); }
-          70% { top: 60%; left: 80%; transform: scale(1); }
-          80% { top: 85%; left: 60%; transform: scale(1); }
-          90% { top: 85%; left: 60%; opacity: 1; transform: scale(1); }
-          100% { top: 85%; left: 60%; opacity: 0; transform: scale(1); }
+        @media (prefers-reduced-motion: reduce) {
+          .pulso-fade-up,
+          .pulso-hero-headline,
+          .pulso-hero-subtitle,
+          .pulso-hero-button,
+          .pulso-hero-mockup {
+            opacity: 1 !important;
+            transform: none !important;
+            animation: none !important;
+            transition: none !important;
+          }
+          .pulso-cta-pulse,
+          .pulso-hero-bg {
+            animation: none !important;
+          }
         }
+
       `}</style>
 
-      <Header onNavigate={scrollTo} />
+      <Header />
       <main>
         <HeroSection />
         <SectionDivider />
         <FeaturesSection />
         <SectionDivider />
-        <PlatformPreview />
-        <SectionDivider />
         <StatsSection />
         <SectionDivider />
-        <HowItWorks />
-        <SectionDivider />
-        <CTAFinal />
+        <section className="px-6 py-20 md:py-28 text-center">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl" style={{ fontFamily: "var(--font-jakarta)" }}>
+              Tu departamento de marketing externo.
+            </h2>
+            <p className="mt-6 text-lg text-slate-500 leading-relaxed">
+              Un sistema comercial automatizado potenciado con IA, que se nutre de una estrategia de marketing con investigación de mercado. Nos transformamos en el departamento de marketing de tu empresa.
+            </p>
+          </div>
+        </section>
       </main>
       <Footer />
     </>
   );
 }
 
-function Header({ onNavigate }: { onNavigate: (id: string) => void }) {
+function Header() {
   return (
     <header
       className="absolute left-0 right-0 top-0 z-50"
     >
       <div className="mx-auto flex max-w-[1380px] items-center justify-between px-6 py-4">
         <div className="flex items-center gap-2">
-          <svg width="30" height="24" viewBox="0 0 30 24" fill="none">
+          <svg width="30" height="24" viewBox="0 0 30 24" fill="none" aria-hidden="true">
             <path d="M7 16L15 6l8 10" stroke="rgba(255,255,255,0.5)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M7 20L15 10l8 10" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -558,12 +481,6 @@ function Header({ onNavigate }: { onNavigate: (id: string) => void }) {
             impulso
           </span>
         </div>
-        <button
-          onClick={() => onNavigate("cta-final")}
-          className="rounded-[10px] bg-white px-5 py-2.5 text-sm font-bold text-[#437AEF] transition-all hover:shadow-lg hover:shadow-white/20"
-        >
-          Solicitar Demo
-        </button>
       </div>
     </header>
   );
@@ -582,24 +499,21 @@ function HeroSection() {
       <div className="relative mx-auto max-w-[1380px]">
         <div className="max-w-3xl">
           <h1 className="pulso-hero-headline text-3xl sm:text-5xl font-extrabold leading-[1.05] tracking-[-0.02em] text-white md:text-7xl">
-            Tu equipo de marketing
+            Somos un equipo de
             <br />
-            completo.
+            marketing completo.
             <br />
             <span className="pulso-gradient-text">
-              Potenciado por IA.
+              Potenciado con IA.
             </span>
           </h1>
           <p
             className="pulso-hero-subtitle mt-8 max-w-xl text-lg font-medium leading-relaxed md:text-xl"
             style={{ color: "rgba(255,255,255,0.75)" }}
           >
-            Estrategia, campañas, CRM y métricas en una sola plataforma.
-            Diseñado para pymes que quieren crecer sin complicarse.
+            Construimos un sistema comercial personalizado que ayuda a captar,
+            ordenar y convertir oportunidades reales.
           </p>
-          <button className="pulso-hero-button pulso-cta-pulse mt-10 rounded-[10px] bg-white px-8 py-4 text-base font-bold text-[#437AEF] transition-all hover:shadow-lg hover:shadow-white/20">
-            Solicitar Demo
-          </button>
         </div>
 
         <div className="pulso-hero-mockup mt-16 md:mt-20">
@@ -725,95 +639,74 @@ function MockupCursor({ animationName, duration, delay = 1.5, isVisible }: { ani
   );
 }
 
-function StrategyMockup() {
+function DiagnosticoMockup() {
   const { ref, inView } = useInView(0.3);
+  const auditItems = [
+    { label: "Ecosistema digital", status: "warning", detail: "Web sin SEO" },
+    { label: "Procesos internos", status: "danger", detail: "Sin CRM" },
+    { label: "Canales de captación", status: "warning", detail: "Solo boca a boca" },
+    { label: "Objetivos comerciales", status: "success", detail: "Claros" },
+    { label: "Puntos de dolor", status: "danger", detail: "3 detectados" },
+  ];
+  const statusColors: Record<string, { bg: string; text: string; icon: string }> = {
+    success: { bg: "#F0FDF4", text: "#22C55E", icon: "check" },
+    warning: { bg: "#FFF7ED", text: "#F59E0B", icon: "warn" },
+    danger: { bg: "#FEF2F2", text: "#EF4444", icon: "x" },
+  };
   return (
     <div ref={ref} className="pulso-fade-up w-full max-w-xl mx-auto" style={{ transitionDelay: "200ms" }}>
-      <AppFrame title="impulso — Estrategia" activeNav={1}>
+      <AppFrame title="impulso — Diagnóstico" activeNav={1}>
         <div className="p-4" style={{ position: "relative" }}>
           <MockupCursor animationName="cursor-strategy" duration={7} isVisible={inView} />
           <div className="flex items-center justify-between mb-4">
             <div>
               <h4 className="text-sm font-bold text-[#0F172A]">Tu Negocio S.L.</h4>
-              <span className="text-[10px] text-[#94A3B8]">Plan estratégico activo</span>
+              <span className="text-[10px] text-[#94A3B8]">Auditoría inicial</span>
             </div>
-            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534]">En ejecución</span>
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#FFF7ED] text-[#92400E]">En análisis</span>
           </div>
-          {/* Progress timeline */}
-          <div className="flex items-center gap-0 mb-4">
-            {[
-              { label: "Diagnóstico", done: true },
-              { label: "Research", done: true },
-              { label: "Estrategia", done: true },
-              { label: "Ejecución", isActive: true },
-            ].map((step, i) => (
-              <div key={step.label} className="flex-1 flex flex-col items-center relative">
-                <div className="flex items-center w-full">
-                  {i > 0 && <div className="flex-1 h-0.5" style={{ background: step.done || step.isActive ? "#437AEF" : "#E2E8F0" }} />}
-                  <div className={`mockup-step-fill${inView ? " active" : ""} flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center`} style={{
-                    background: step.done ? "#437AEF" : step.isActive ? "white" : "#E2E8F0",
-                    border: step.isActive ? "2px solid #437AEF" : "none",
-                    transitionDelay: `${700 + i * 300}ms`,
-                  }}>
-                    {step.done && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>}
-                    {step.isActive && <div className="w-2 h-2 rounded-full bg-[#437AEF]" />}
+          <div className="rounded-lg bg-white mb-3" style={{ border: "1px solid #F1F5F9" }}>
+            <div className="px-3 py-2 flex items-center justify-between" style={{ borderBottom: "1px solid #F1F5F9" }}>
+              <div className="flex items-center gap-2">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span className="text-[10px] font-bold text-[#0F172A]">Checklist de auditoría</span>
+              </div>
+              <span className={`mockup-fade-in${inView ? " active" : ""} text-[9px] font-medium text-[#437AEF]`} style={{ transitionDelay: "2800ms" }}>{inView ? "5/5 analizado" : ""}</span>
+            </div>
+            <div className="divide-y divide-[#F8FAFC]">
+              {auditItems.map((item, i) => {
+                const s = statusColors[item.status];
+                return (
+                  <div key={item.label} className={`mockup-slide-in${inView ? " active" : ""} px-3 py-2 flex items-center gap-2.5`} style={{ transitionDelay: `${800 + i * 350}ms` }}>
+                    <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: s.bg }}>
+                      {s.icon === "check" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={s.text} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>}
+                      {s.icon === "warn" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={s.text} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>}
+                      {s.icon === "x" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={s.text} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <span className="text-[10px] font-semibold text-[#0F172A]">{item.label}</span>
+                    </div>
+                    <span className="text-[9px] font-medium flex-shrink-0" style={{ color: s.text }}>{item.detail}</span>
                   </div>
-                  {i < 3 && <div className="flex-1 h-0.5" style={{ background: i < 2 ? "#437AEF" : "#E2E8F0" }} />}
-                </div>
-                <span className={`mockup-fade-in${inView ? " active" : ""} text-[8px] font-semibold mt-1`} style={{ color: step.done || step.isActive ? "#437AEF" : "#94A3B8", transitionDelay: `${700 + i * 300}ms` }}>{step.label}</span>
-              </div>
-            ))}
+                );
+              })}
+            </div>
           </div>
-          {/* Diagnostic summary */}
-          <div className="rounded-lg p-3 bg-white mb-2" style={{ border: "1px solid #F1F5F9" }}>
+          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-3 mb-2`} style={{ background: "#F8FAFC", border: "1px solid #E2E8F0", transitionDelay: "2800ms" }}>
             <div className="flex items-center gap-2 mb-2">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              <span className="text-[10px] font-bold text-[#0F172A]">Diagnóstico inicial</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              <span className="text-[10px] font-bold text-[#0F172A]">Salud general</span>
             </div>
-            <div className="grid grid-cols-3 gap-2">
-              <div className={`mockup-fade-in${inView ? " active" : ""} rounded px-2 py-1.5`} style={{ background: "#FEF2F2", transitionDelay: "1900ms" }}>
-                <div className="text-[8px] text-[#94A3B8]">Presencia</div>
-                <div className="text-xs font-bold text-[#EF4444]">{inView ? "3/10" : ""}</div>
+            <div className="flex items-center gap-3">
+              <div className="flex-1 h-2 rounded-full" style={{ background: "#E2E8F0" }}>
+                <div className="h-full rounded-full mockup-bar-grow" style={{ background: "linear-gradient(90deg, #EF4444, #F59E0B)", width: inView ? "42%" : "0%" }} />
               </div>
-              <div className={`mockup-fade-in${inView ? " active" : ""} rounded px-2 py-1.5`} style={{ background: "#FFF7ED", transitionDelay: "2100ms" }}>
-                <div className="text-[8px] text-[#94A3B8]">SEO</div>
-                <div className="text-xs font-bold text-[#F59E0B]">{inView ? "Débil" : ""}</div>
-              </div>
-              <div className={`mockup-fade-in${inView ? " active" : ""} rounded px-2 py-1.5`} style={{ background: "#F0FDF4", transitionDelay: "2300ms" }}>
-                <div className="text-[8px] text-[#94A3B8]">Oportunidades</div>
-                <div className="text-xs font-bold text-[#22C55E]">{inView ? "8" : ""}</div>
-              </div>
+              <span className="text-xs font-extrabold text-[#F59E0B]">{inView ? "4.2/10" : ""}</span>
             </div>
           </div>
-          {/* Strategy plan */}
-          <div className="rounded-lg p-3 bg-white mb-2" style={{ border: "1px solid #F1F5F9" }}>
-            <div className="flex items-center gap-2 mb-2">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              <span className="text-[10px] font-bold text-[#0F172A]">Plan estratégico</span>
-            </div>
-            <div className="space-y-1.5">
-              {[
-                { action: "Google Ads — Salud Visa España", budget: "$200/mes" },
-                { action: "Meta Ads — Instagram + Facebook", budget: "$150/mes" },
-                { action: "Landing optimizada + SEO", budget: "Incluido" },
-                { action: "Bot WhatsApp + CRM", budget: "Incluido" },
-              ].map((item, i) => (
-                <div key={item.action} className={`mockup-slide-in${inView ? " active" : ""} flex items-center justify-between rounded px-2 py-1.5 gap-2`} style={{ background: "#F8FAFC", transitionDelay: `${2500 + i * 200}ms` }}>
-                  <div className="flex items-center gap-2 min-w-0">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0" />
-                    <span className="text-[10px] text-[#0F172A] truncate">{item.action}</span>
-                  </div>
-                  <span className="text-[9px] font-medium text-[#437AEF] flex-shrink-0">{item.budget}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* Research insight */}
-          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg px-3 py-2 flex items-center justify-between`} style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", transitionDelay: "3300ms" }}>
-            <div className="flex items-center gap-2">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <span className="text-[10px] font-medium text-[#1E40AF] truncate">Research: 5 competidores · 3 buyer personas · TAM $2.4M</span>
-            </div>
+          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg px-3 py-2 flex items-center gap-2`} style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", transitionDelay: "3200ms" }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <span className="text-[10px] font-medium text-[#1E40AF]">2 áreas críticas · 2 mejorables · 1 sólida</span>
           </div>
         </div>
       </AppFrame>
@@ -821,116 +714,128 @@ function StrategyMockup() {
   );
 }
 
-function GoogleAdMockup() {
+function EstrategiaMockup() {
   const { ref, inView } = useInView(0.3);
+  const actionItems = [
+    { action: "Landing optimizada + SEO local", priority: "Alta", color: "#EF4444" },
+    { action: "Google Ads — campaña de búsqueda", priority: "Alta", color: "#EF4444" },
+    { action: "Meta Ads — Instagram + Facebook", priority: "Media", color: "#F59E0B" },
+    { action: "Bot WhatsApp + CRM automatizado", priority: "Media", color: "#F59E0B" },
+  ];
+  const channels = [
+    { name: "Google Ads", pct: 40 },
+    { name: "Meta Ads", pct: 30 },
+    { name: "SEO", pct: 20 },
+    { name: "Email", pct: 10 },
+  ];
   return (
     <div ref={ref} className="pulso-fade-up w-full max-w-xl mx-auto" style={{ transitionDelay: "200ms" }}>
-      <AppFrame title="impulso — Campañas" activeNav={2}>
-        <div style={{ position: "relative" }}>
-            <MockupCursor animationName="cursor-ads" duration={7} isVisible={inView} />
-            <div className="flex border-b" style={{ borderColor: "#E2E8F0" }}>
-              {["Google Ads", "Meta Ads", "SEO"].map((tab, i) => (
-                <button key={tab} className="px-4 py-2.5 text-[11px] font-semibold" style={{ color: i === 0 ? "#437AEF" : "#94A3B8", borderBottom: i === 0 ? "2px solid #437AEF" : "2px solid transparent", background: i === 0 ? "white" : "transparent" }}>{tab}</button>
-              ))}
+      <AppFrame title="impulso — Estrategia" activeNav={2}>
+        <div className="p-4" style={{ position: "relative" }}>
+          <MockupCursor animationName="cursor-ads" duration={7} isVisible={inView} />
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h4 className="text-sm font-bold text-[#0F172A]">Plan Estratégico</h4>
+              <span className="text-[10px] text-[#94A3B8]">Tu Negocio S.L.</span>
             </div>
-            <div className="p-4">
-              <div className="rounded-lg bg-white mb-2" style={{ border: "1px solid #F1F5F9" }}>
-                <div className="px-3 py-2.5 flex items-center justify-between" style={{ borderBottom: "1px solid #F8FAFC" }}>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-semibold text-[#0F172A]">Salud Visa Espana</span>
-                    <span className="text-[8px] font-semibold px-1.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534]">Active</span>
-                  </div>
-                </div>
-                <div className="px-3 py-2 flex flex-wrap items-center gap-3 sm:gap-4">
-                  <div>
-                    <span className="text-base font-extrabold text-[#0F172A]"><MockupNumber value={847} inView={inView} /></span>
-                    <span className="text-[9px] text-[#94A3B8] ml-1">clicks</span>
-                  </div>
-                  <div>
-                    <span className="text-base font-extrabold text-[#22C55E]"><MockupNumber value={6} suffix=".8%" inView={inView} delay={900} /></span>
-                    <span className="text-[9px] text-[#94A3B8] ml-1">CTR</span>
-                  </div>
-                  <div>
-                    <span className="text-base font-extrabold text-[#437AEF]"><MockupNumber value={0} suffix=".23" prefix="$" inView={inView} delay={1100} /></span>
-                    <span className="text-[9px] text-[#94A3B8] ml-1">CPC</span>
-                  </div>
-                  <div className="ml-auto hidden sm:block">
-                    <svg width="60" height="20" viewBox="0 0 60 20" fill="none">
-                      <polyline points="0,16 10,12 20,14 30,8 40,6 50,3 60,1" stroke="#22C55E" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"
-                        className="mockup-line-draw"
-                        style={{ strokeDasharray: 80, strokeDashoffset: inView ? 0 : 80, transitionDelay: "700ms" }}
-                      />
-                    </svg>
-                  </div>
-                </div>
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534]">Aprobado</span>
+          </div>
+          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-3 bg-white mb-3`} style={{ border: "1px solid #F1F5F9", transitionDelay: "700ms" }}>
+            <div className="flex items-center gap-2 mb-2">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span className="text-[10px] font-bold text-[#0F172A]">Público objetivo</span>
+            </div>
+            <div className="flex items-center gap-2 rounded px-2 py-1.5" style={{ background: "#F8FAFC" }}>
+              <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "#E1EAFE" }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               </div>
-              <div className="rounded-lg bg-white mb-3" style={{ border: "1px solid #F1F5F9" }}>
-                <div className="px-3 py-2.5 flex items-center justify-between" style={{ borderBottom: "1px solid #F8FAFC" }}>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-semibold text-[#0F172A]">RC Medica Chile</span>
-                    <span className="text-[8px] font-semibold px-1.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534]">Active</span>
-                  </div>
-                </div>
-                <div className="px-3 py-2 flex flex-wrap items-center gap-3 sm:gap-4">
-                  <div>
-                    <span className="text-base font-extrabold text-[#0F172A]"><MockupNumber value={312} inView={inView} delay={1300} /></span>
-                    <span className="text-[9px] text-[#94A3B8] ml-1">clicks</span>
-                  </div>
-                  <div>
-                    <span className="text-base font-extrabold text-[#22C55E]"><MockupNumber value={5} suffix=".2%" inView={inView} delay={1500} /></span>
-                    <span className="text-[9px] text-[#94A3B8] ml-1">CTR</span>
-                  </div>
-                  <div>
-                    <span className="text-base font-extrabold text-[#437AEF]"><MockupNumber value={0} suffix=".31" prefix="$" inView={inView} delay={1700} /></span>
-                    <span className="text-[9px] text-[#94A3B8] ml-1">CPC</span>
-                  </div>
-                  <div className="ml-auto hidden sm:block">
-                    <svg width="60" height="20" viewBox="0 0 60 20" fill="none">
-                      <polyline points="0,14 10,16 20,10 30,12 40,8 50,5 60,4" stroke="#22C55E" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"
-                        className="mockup-line-draw"
-                        style={{ strokeDasharray: 80, strokeDashoffset: inView ? 0 : 80, transitionDelay: "1300ms" }}
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg px-3 py-2 flex items-center gap-3`} style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", transitionDelay: "1900ms" }}>
-                <svg width="14" height="14" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#1877F2"/><path d="M33 24h-5v-3c0-1.4.6-2 2-2h3v-5h-4c-4 0-6 2.5-6 6v4h-4v5h4v13h5V29h4l1-5z" fill="white"/></svg>
-                <div className="flex flex-wrap items-center gap-1 sm:gap-3 min-w-0">
-                  <span className="text-[10px] font-semibold text-[#1E40AF]">Meta Ads:</span>
-                  <span className="text-[10px] text-[#475569] truncate">Salud Visa IG — <strong>23.1K</strong> alcance · <strong>1,204</strong> clicks</span>
-                </div>
+              <div className="min-w-0">
+                <div className="text-[10px] font-semibold text-[#0F172A]">Empresario 35-55 años</div>
+                <div className="text-[9px] text-[#94A3B8]">Valencia · Factura 200K-2M · Busca crecer online</div>
               </div>
             </div>
           </div>
+          <div className="rounded-lg p-3 bg-white mb-3" style={{ border: "1px solid #F1F5F9" }}>
+            <div className="flex items-center gap-2 mb-2">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span className="text-[10px] font-bold text-[#0F172A]">Plan de acción</span>
+            </div>
+            <div className="space-y-1.5">
+              {actionItems.map((item, i) => (
+                <div key={item.action} className={`mockup-slide-in${inView ? " active" : ""} flex items-center justify-between rounded px-2 py-1.5 gap-2`} style={{ background: "#F8FAFC", transitionDelay: `${1100 + i * 250}ms` }}>
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: item.color }} />
+                    <span className="text-[10px] text-[#0F172A] truncate">{item.action}</span>
+                  </div>
+                  <span className="text-[9px] font-medium flex-shrink-0" style={{ color: item.color }}>{item.priority}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-3 bg-white mb-3`} style={{ border: "1px solid #F1F5F9", transitionDelay: "2200ms" }}>
+            <div className="flex items-center gap-2 mb-2">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              <span className="text-[10px] font-bold text-[#0F172A]">Distribución de canales</span>
+            </div>
+            <div className="space-y-1.5">
+              {channels.map((ch, i) => (
+                <div key={ch.name} className="flex items-center gap-2">
+                  <span className="text-[9px] text-[#94A3B8] w-16 flex-shrink-0">{ch.name}</span>
+                  <div className="flex-1 h-1.5 rounded-full" style={{ background: "#E2E8F0" }}>
+                    <div className="h-full rounded-full mockup-bar-grow" style={{ background: i === 0 ? "#437AEF" : i === 1 ? "#798AFF" : i === 2 ? "#22C55E" : "#94A3B8", width: inView ? `${ch.pct}%` : "0%" }} />
+                  </div>
+                  <span className="text-[9px] font-semibold text-[#0F172A] w-6 text-right">{ch.pct}%</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg px-3 py-2 flex items-center gap-2`} style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", transitionDelay: "2600ms" }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span className="text-[10px] font-medium text-[#1E40AF] truncate">Mensaje clave: "Resultados medibles desde el primer mes"</span>
+          </div>
+        </div>
       </AppFrame>
     </div>
   );
 }
 
-function CRMMockup() {
+function SistemaComercialMockup() {
   const { ref, inView } = useInView(0.3);
+  const funnelSteps = [
+    { label: "Anuncios", icon: "M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" },
+    { label: "IA", icon: "M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 01-1.591.659H9.061a2.25 2.25 0 01-1.591-.659L5 14.5m14 0V5a2 2 0 00-2-2H7a2 2 0 00-2 2v9.5" },
+    { label: "CRM", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
+    { label: "Panel", icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0h6" },
+  ];
   const feedEvents = [
-    { icon: "bot", text: "Valentina calificó a Maria G.", detail: "Salud Visa · derivó a Juan Pablo", time: "14:32", color: "#25D366" },
-    { icon: "alert", text: "Follow-up enviado a Pedro M.", detail: "Sin respuesta hace 6h · reintento #2", time: "14:15", color: "#F59E0B" },
-    { icon: "lead", text: "Nuevo lead desde Google Ads", detail: "RC Medica · asignado automáticamente", time: "13:58", color: "#437AEF" },
-    { icon: "check", text: "Carlos R. respondió al asesor", detail: "Salud Visa · movido a Contactado", time: "13:41", color: "#22C55E" },
-    { icon: "bot", text: "Valentina atendió consulta", detail: "Pregunta sobre cobertura dental", time: "13:22", color: "#25D366" },
+    { icon: "lead", text: "Nuevo lead desde Google Ads", detail: "Búsqueda orgánica · asignado", time: "14:32", color: "#437AEF" },
+    { icon: "bot", text: "IA cualificó lead", detail: "María G. · Salud Visa · derivó a asesor", time: "14:28", color: "#25D366" },
+    { icon: "calendar", text: "Reunión agendada", detail: "Pedro M. · mañana 10:00", time: "14:15", color: "#8B5CF6" },
+    { icon: "check", text: "Lead cerrado ganado", detail: "Carlos R. · Salud Visa · firmó póliza", time: "13:58", color: "#22C55E" },
+    { icon: "bot", text: "IA atendió consulta fuera de horario", detail: "Pregunta sobre cobertura dental", time: "02:14", color: "#25D366" },
   ];
   return (
     <div ref={ref} className="pulso-fade-up w-full max-w-xl mx-auto" style={{ transitionDelay: "200ms" }}>
-      <AppFrame title="impulso — Control 24/7" activeNav={3}>
+      <AppFrame title="impulso — Sistema Comercial" activeNav={3}>
         <div className="p-3" style={{ position: "relative" }}>
           <MockupCursor animationName="cursor-crm" duration={7} isVisible={inView} />
-          {/* Status bar */}
           <div className={`mockup-fade-in${inView ? " active" : ""} flex items-center justify-between mb-3 rounded-lg px-3 py-2`} style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", transitionDelay: "700ms" }}>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
-              <span className="text-[10px] font-bold text-[#166534]">Sistema activo</span>
+              <span className="text-[10px] font-bold text-[#166534]">Sistema activo 24/7</span>
             </div>
-            <span className="text-[9px] text-[#16A34A]">Ultimo evento: hace 2 min</span>
+            <div className="flex items-center gap-1">
+              {funnelSteps.map((step, i) => (
+                <div key={step.label} className="flex items-center">
+                  <div className="flex flex-col items-center">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={step.icon}/></svg>
+                    <span className="text-[6px] font-semibold text-[#437AEF]">{step.label}</span>
+                  </div>
+                  {i < funnelSteps.length - 1 && <svg width="6" height="6" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-0.5"><polyline points="9 18 15 12 9 6"/></svg>}
+                </div>
+              ))}
+            </div>
           </div>
-          {/* Live feed */}
           <div className="rounded-lg bg-white mb-3" style={{ border: "1px solid #F1F5F9" }}>
             <div className="px-3 py-2 flex items-center justify-between" style={{ borderBottom: "1px solid #F1F5F9" }}>
               <span className="text-[10px] font-bold text-[#0F172A]">Feed en vivo</span>
@@ -941,8 +846,8 @@ function CRMMockup() {
                 <div key={event.time} className={`mockup-feed-item${inView ? " active" : ""} px-3 py-2 flex items-start gap-2`} style={{ transitionDelay: `${1000 + i * 400}ms` }}>
                   <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: `${event.color}15` }}>
                     {event.icon === "bot" && <svg width="10" height="10" viewBox="0 0 24 24" fill={event.color}><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7v1H3v-1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2zM4 16h16v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2z"/></svg>}
-                    {event.icon === "alert" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={event.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>}
                     {event.icon === "lead" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={event.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>}
+                    {event.icon === "calendar" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={event.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>}
                     {event.icon === "check" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={event.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -954,19 +859,18 @@ function CRMMockup() {
               ))}
             </div>
           </div>
-          {/* Stats row */}
           <div className="grid grid-cols-3 gap-2">
             <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2 text-center`} style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", transitionDelay: "3000ms" }}>
-              <div className="text-lg font-extrabold text-[#437AEF]"><MockupNumber value={34} inView={inView} delay={3000} /></div>
+              <div className="text-lg font-extrabold text-[#437AEF]"><MockupNumber value={12} inView={inView} delay={3000} /></div>
               <div className="text-[8px] font-semibold text-[#1E40AF]">Leads hoy</div>
             </div>
             <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2 text-center`} style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", transitionDelay: "3200ms" }}>
-              <div className="text-lg font-extrabold text-[#22C55E]"><MockupNumber value={28} inView={inView} delay={3200} /></div>
-              <div className="text-[8px] font-semibold text-[#166534]">Atendidos</div>
+              <div className="text-lg font-extrabold text-[#22C55E]"><MockupNumber value={8} inView={inView} delay={3200} /></div>
+              <div className="text-[8px] font-semibold text-[#166534]">Cualificados</div>
             </div>
-            <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2 text-center`} style={{ background: "#FFF7ED", border: "1px solid #FED7AA", transitionDelay: "3400ms" }}>
-              <div className="text-lg font-extrabold text-[#F59E0B]"><MockupNumber value={6} inView={inView} delay={3400} /></div>
-              <div className="text-[8px] font-semibold text-[#92400E]">Pendientes</div>
+            <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2 text-center`} style={{ background: "#F5F3FF", border: "1px solid #DDD6FE", transitionDelay: "3400ms" }}>
+              <div className="text-lg font-extrabold text-[#8B5CF6]"><MockupNumber value={3} inView={inView} delay={3400} /></div>
+              <div className="text-[8px] font-semibold text-[#5B21B6]">Reuniones</div>
             </div>
           </div>
         </div>
@@ -975,78 +879,6 @@ function CRMMockup() {
   );
 }
 
-function DashboardMockup() {
-  const { ref, inView } = useInView(0.3);
-  return (
-    <div ref={ref} className="pulso-fade-up w-full max-w-xl mx-auto" style={{ transitionDelay: "200ms" }}>
-      <AppFrame title="impulso — Dashboard" activeNav={4}>
-        <div className="p-4" style={{ position: "relative" }}>
-            <MockupCursor animationName="cursor-dashboard" duration={7} isVisible={inView} />
-            <div className="flex items-center justify-between mb-3">
-              <h4 className="text-sm font-bold text-[#0F172A]">Resumen</h4>
-              <div className="flex items-center gap-1.5 rounded-lg px-2.5 py-1 bg-white text-[10px] font-medium text-[#475569]" style={{ border: "1px solid #E2E8F0" }}>
-                Ultimos 30 dias
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
-              {[
-                {label:"Leads",val:128,suffix:"",prefix:"",change:"+12%",up:true},
-                {label:"ROAS",val:4,suffix:".2x",prefix:"",change:"+0.8",up:true},
-                {label:"Costo/Lead",val:12,suffix:"",prefix:"$",change:"-$3",up:true},
-                {label:"Conversiones",val:34,suffix:"",prefix:"",change:"+18%",up:true},
-              ].map((kpi, i) => (
-                <div key={kpi.label} className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2.5 bg-white`} style={{ border: "1px solid #F1F5F9", transitionDelay: `${700 + i * 200}ms` }}>
-                  <div className="text-[8px] font-semibold uppercase tracking-wider text-[#94A3B8]">{kpi.label}</div>
-                  <div className="text-lg font-extrabold text-[#0F172A] mt-0.5"><MockupNumber value={kpi.val} suffix={kpi.suffix} prefix={kpi.prefix} inView={inView} delay={700 + i * 200} /></div>
-                  <div className={`mockup-fade-in${inView ? " active" : ""} flex items-center gap-0.5 mt-0.5`} style={{ transitionDelay: `${1500 + i * 200}ms` }}>
-                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points={kpi.up ? "23 6 13.5 15.5 8.5 10.5 1 18" : "23 18 13.5 8.5 8.5 13.5 1 6"}/></svg>
-                    <span className="text-[9px] font-medium text-[#22C55E]">{kpi.change}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="rounded-lg p-3 bg-white mb-2" style={{ border: "1px solid #F1F5F9" }}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-semibold text-[#0F172A]">Leads ultimos 30 dias</span>
-                <span className="text-[9px] text-[#94A3B8]">Jun 2026</span>
-              </div>
-              <svg width="100%" height="60" viewBox="0 0 320 60" fill="none" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="chartGrad2" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#437AEF" stopOpacity="0.12"/>
-                    <stop offset="100%" stopColor="#437AEF" stopOpacity="0"/>
-                  </linearGradient>
-                </defs>
-                <line x1="0" y1="15" x2="320" y2="15" stroke="#F1F5F9" strokeWidth="1"/>
-                <line x1="0" y1="30" x2="320" y2="30" stroke="#F1F5F9" strokeWidth="1"/>
-                <line x1="0" y1="45" x2="320" y2="45" stroke="#F1F5F9" strokeWidth="1"/>
-                <path d="M0 48 L40 40 L80 44 L120 30 L160 26 L200 18 L240 22 L280 10 L320 6 L320 60 L0 60 Z" fill="url(#chartGrad2)" className={`mockup-fade-in${inView ? " active" : ""}`} style={{ transitionDelay: "2000ms" }} />
-                <polyline points="0,48 40,40 80,44 120,30 160,26 200,18 240,22 280,10 320,6" stroke="#437AEF" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"
-                  className="mockup-line-draw"
-                  style={{ strokeDasharray: 400, strokeDashoffset: inView ? 0 : 400, transitionDelay: "1500ms" }}
-                />
-                <circle cx="280" cy="10" r="3" fill="#437AEF" className={`mockup-fade-in${inView ? " active" : ""}`} style={{ transitionDelay: "2800ms" }} />
-              </svg>
-            </div>
-            <div className="rounded-lg p-2.5 bg-white" style={{ border: "1px solid #F1F5F9" }}>
-              <div className="text-[10px] font-semibold text-[#0F172A] mb-1.5">Fuentes de trafico</div>
-              <div className="flex rounded-full overflow-hidden h-3">
-                <div className="mockup-bar-grow" style={{ width: inView ? "52%" : "0%", background: "#4285F4", transitionDelay: "2200ms" }} />
-                <div className="mockup-bar-grow" style={{ width: inView ? "35%" : "0%", background: "#1877F2", transitionDelay: "2400ms" }} />
-                <div className="mockup-bar-grow" style={{ width: inView ? "13%" : "0%", background: "#22C55E", transitionDelay: "2600ms" }} />
-              </div>
-              <div className="flex items-center gap-3 mt-1.5">
-                <div className="flex items-center gap-1"><div className="w-2 h-2 rounded-full" style={{ background: "#4285F4" }} /><span className="text-[9px] text-[#475569]">Google 52%</span></div>
-                <div className="flex items-center gap-1"><div className="w-2 h-2 rounded-full" style={{ background: "#1877F2" }} /><span className="text-[9px] text-[#475569]">Meta 35%</span></div>
-                <div className="flex items-center gap-1"><div className="w-2 h-2 rounded-full" style={{ background: "#22C55E" }} /><span className="text-[9px] text-[#475569]">Orgánico 13%</span></div>
-              </div>
-            </div>
-          </div>
-      </AppFrame>
-    </div>
-  );
-}
 
 function SuperpowerSection({ index, icon, title, subtitle, bullets, mockup }: {
   index: number;
@@ -1088,10 +920,9 @@ function SuperpowerSection({ index, icon, title, subtitle, bullets, mockup }: {
 
 function FeaturesSection() {
   const mockups = [
-    <StrategyMockup key="strategy" />,
-    <GoogleAdMockup key="ad" />,
-    <CRMMockup key="crm" />,
-    <DashboardMockup key="dash" />,
+    <DiagnosticoMockup key="diagnostico" />,
+    <EstrategiaMockup key="estrategia" />,
+    <SistemaComercialMockup key="sistema" />,
   ];
 
   return (
@@ -1099,13 +930,13 @@ function FeaturesSection() {
       <div className="mx-auto max-w-[1380px]">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-widest text-[#437AEF]">
-            4 superpoderes
+            3 etapas
           </span>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0F172A] md:text-4xl">
-            Todo lo que necesitas. Nada que no.
+            Todo lo que necesitas.
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-[#475569]">
-            Cuatro módulos integrados que cubren cada etapa de tu marketing digital.
+            La idea no es hacer acciones sueltas. Es construir un sistema que funcione.
           </p>
         </div>
 
@@ -1127,221 +958,6 @@ function FeaturesSection() {
   );
 }
 
-function PlatformPreview() {
-  return (
-    <section
-      id="plataforma"
-      className="bg-[#F2F6FE] px-6 py-20 md:py-28"
-    >
-      <div className="mx-auto max-w-[1380px]">
-        <div className="mx-auto max-w-2xl text-center">
-          <span
-            className="text-sm font-semibold uppercase tracking-widest text-[#437AEF]"
-          >
-            Plataforma
-          </span>
-          <h2 className="mt-3 text-2xl sm:text-4xl font-extrabold tracking-tight">
-            <span className="text-[#0F172A]">
-              Del primer mensaje al cierre,
-            </span>
-            <br />
-            <span className="text-[#437AEF]">
-              completamente automático.
-            </span>
-          </h2>
-          <p
-            className="mt-4 text-lg leading-relaxed text-[#475569]"
-          >
-            Todo empieza con una buena conversación.
-          </p>
-        </div>
-
-        <div className="mt-14">
-          <div
-            className="grid gap-3 grid-cols-1 md:grid-cols-3"
-          >
-            <div className="flex flex-col gap-3">
-              <div
-                className="pulso-fade-up flex flex-col rounded-2xl p-5"
-                style={{ background: "#5A8CF6", transitionDelay: "0ms" }}
-              >
-                <span className="text-sm font-bold text-white">El Lead Llega</span>
-                <span className="mt-1 text-xs font-normal" style={{ color: "rgba(255,255,255,0.75)" }}>Captación</span>
-                <div className="mt-auto flex items-center justify-center py-4">
-                  <svg width="120" height="120" viewBox="0 0 72 72" fill="none">
-                    <rect x="10" y="6" width="52" height="60" rx="8" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" />
-                    <path d="M10 20h52" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" />
-                    <circle cx="20" cy="13" r="2" fill="rgba(255,255,255,0.5)" />
-                    <circle cx="28" cy="13" r="2" fill="rgba(255,255,255,0.5)" />
-                    <circle cx="36" cy="13" r="2" fill="rgba(255,255,255,0.5)" />
-                    <rect x="18" y="28" width="36" height="6" rx="3" fill="rgba(255,255,255,0.15)" />
-                    <rect x="18" y="28" width="24" height="6" rx="3" fill="rgba(255,255,255,0.6)" />
-                    <rect x="18" y="40" width="36" height="6" rx="3" fill="rgba(255,255,255,0.15)" />
-                    <rect x="18" y="40" width="16" height="6" rx="3" fill="rgba(255,255,255,0.4)" />
-                    <rect x="18" y="52" width="36" height="6" rx="3" fill="rgba(255,255,255,0.15)" />
-                    <rect x="18" y="52" width="30" height="6" rx="3" fill="rgba(255,255,255,0.5)" />
-                  </svg>
-                </div>
-              </div>
-              <div
-                className="pulso-fade-up flex flex-col rounded-2xl p-5"
-                style={{ background: "#0A1C43", transitionDelay: "120ms" }}
-              >
-                <span className="text-sm font-bold text-white">La IA Conversa y Vende</span>
-                <span className="mt-1 text-xs font-normal" style={{ color: "rgba(255,255,255,0.6)" }}>Conversación</span>
-                <div className="mt-auto flex items-center justify-center py-4">
-                  <svg width="120" height="120" viewBox="0 0 72 72" fill="none">
-                    <rect x="4" y="8" width="38" height="26" rx="6" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" />
-                    <rect x="12" y="18" width="14" height="2.5" rx="1.25" fill="rgba(255,255,255,0.5)" />
-                    <rect x="12" y="24" width="22" height="2.5" rx="1.25" fill="rgba(255,255,255,0.3)" />
-                    <path d="M42 28l-8 6" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
-                    <rect x="30" y="38" width="38" height="26" rx="6" fill="rgba(67,122,239,0.25)" stroke="rgba(67,122,239,0.5)" strokeWidth="1.5" />
-                    <rect x="38" y="47" width="18" height="2.5" rx="1.25" fill="rgba(255,255,255,0.6)" />
-                    <rect x="38" y="53" width="12" height="2.5" rx="1.25" fill="rgba(255,255,255,0.4)" />
-                    <circle cx="60" cy="14" r="8" fill="rgba(67,122,239,0.4)" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
-                    <path d="M57 14l2.5 2.5L63 12" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              </div>
-              <div
-                className="pulso-fade-up flex flex-col rounded-2xl p-5"
-                style={{ background: "#C8D9FE", transitionDelay: "240ms" }}
-              >
-                <span className="text-sm font-bold text-[#0F172A]">Lead Calificado en 2 min</span>
-                <span className="mt-1 text-xs font-normal text-[#475569]">Calificación</span>
-                <div className="mt-auto flex items-center justify-center py-4">
-                  <svg width="110" height="100" viewBox="0 0 72 64" fill="none">
-                    <rect x="6" y="4" width="60" height="56" rx="8" fill="rgba(67,122,239,0.06)" stroke="#437AEF" strokeWidth="1.5" />
-                    <rect x="14" y="16" width="20" height="3" rx="1.5" fill="#437AEF" opacity="0.4" />
-                    <rect x="14" y="24" width="32" height="3" rx="1.5" fill="#437AEF" opacity="0.2" />
-                    <rect x="14" y="36" width="20" height="3" rx="1.5" fill="#437AEF" opacity="0.4" />
-                    <rect x="14" y="44" width="28" height="3" rx="1.5" fill="#437AEF" opacity="0.2" />
-                    <circle cx="54" cy="44" r="10" fill="#437AEF" opacity="0.15" />
-                    <path d="M49 44l3.5 3.5L59 41" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <div
-                className="pulso-fade-up flex flex-col rounded-2xl p-5"
-                style={{ background: "#437AEF", transitionDelay: "150ms" }}
-              >
-                <span className="text-base font-bold text-white">Tu Ecosistema Conectado</span>
-                <span className="mt-1 text-xs font-normal" style={{ color: "rgba(255,255,255,0.75)" }}>Centraliza todos tus canales en un solo lugar</span>
-                <div className="mt-4 flex items-center justify-center" style={{ height: 160 }}>
-                  <svg className="w-[140px] h-[140px] sm:w-[180px] sm:h-[180px]" viewBox="0 0 200 200" fill="none">
-                    <circle cx="100" cy="100" r="62" stroke="rgba(255,255,255,0.15)" strokeWidth="1" strokeDasharray="5 5" />
-                    <circle cx="100" cy="38" r="22" fill="#25D366" />
-                    <text x="100" y="44" textAnchor="middle" fill="white" fontSize="12" fontWeight="700">WA</text>
-                    <circle cx="162" cy="100" r="22" fill="#4285F4" />
-                    <text x="162" y="106" textAnchor="middle" fill="white" fontSize="12" fontWeight="700">G</text>
-                    <circle cx="100" cy="162" r="22" fill="#1877F2" />
-                    <text x="100" y="168" textAnchor="middle" fill="white" fontSize="12" fontWeight="700">M</text>
-                    <circle cx="38" cy="100" r="22" fill="#FF7A59" />
-                    <text x="38" y="106" textAnchor="middle" fill="white" fontSize="12" fontWeight="700">CRM</text>
-                    <line x1="100" y1="60" x2="100" y2="88" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
-                    <line x1="140" y1="100" x2="112" y2="100" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
-                    <line x1="100" y1="140" x2="100" y2="112" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
-                    <line x1="60" y1="100" x2="88" y2="100" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
-                    <circle cx="100" cy="100" r="12" fill="rgba(255,255,255,0.2)" />
-                    <circle cx="100" cy="100" r="5" fill="white" />
-                  </svg>
-                </div>
-              </div>
-              <div
-                className="pulso-fade-up flex flex-1 flex-col justify-center rounded-2xl p-5"
-                style={{ background: "#0A1C43", transitionDelay: "270ms" }}
-              >
-                <span className="text-base font-bold text-white">Todo Medido en Tiempo Real</span>
-                <span className="mt-1 text-xs font-normal" style={{ color: "rgba(255,255,255,0.6)" }}>Dashboard con métricas que importan</span>
-                <div className="mt-4 flex items-center justify-center" style={{ height: 160 }}>
-                  <svg width="160" height="120" viewBox="0 0 160 120" fill="none">
-                    <rect x="10" y="10" width="140" height="100" rx="8" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" fill="none" />
-                    <line x1="10" y1="30" x2="150" y2="30" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-                    <circle cx="22" cy="20" r="4" fill="#FF5F57" />
-                    <circle cx="34" cy="20" r="4" fill="#FEBC2E" />
-                    <circle cx="46" cy="20" r="4" fill="#28C840" />
-                    <rect x="22" y="42" width="36" height="24" rx="4" fill="rgba(67,122,239,0.3)" />
-                    <text x="40" y="58" textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="10" fontWeight="600">4.2x</text>
-                    <rect x="66" y="42" width="36" height="24" rx="4" fill="rgba(67,122,239,0.3)" />
-                    <text x="84" y="58" textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="10" fontWeight="600">128</text>
-                    <rect x="110" y="42" width="28" height="24" rx="4" fill="rgba(67,122,239,0.3)" />
-                    <text x="124" y="58" textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="10" fontWeight="600">$12</text>
-                    <polyline points="22,95 50,80 80,88 110,72 138,78" stroke="#437AEF" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                    <circle cx="50" cy="80" r="3" fill="#437AEF" />
-                    <circle cx="80" cy="88" r="3" fill="#437AEF" />
-                    <circle cx="110" cy="72" r="3" fill="#437AEF" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <div
-                className="pulso-fade-up flex flex-col rounded-2xl p-5"
-                style={{ background: "#1C4EBA", transitionDelay: "100ms" }}
-              >
-                <span className="text-sm font-bold text-white">Actualiza tu CRM Solo</span>
-                <span className="mt-1 text-xs font-normal" style={{ color: "rgba(255,255,255,0.65)" }}>Sincronización</span>
-                <div className="mt-auto flex items-center justify-center py-4">
-                  <svg width="120" height="120" viewBox="0 0 72 72" fill="none">
-                    <rect x="6" y="14" width="26" height="20" rx="4" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" fill="rgba(255,255,255,0.08)" />
-                    <rect x="12" y="20" width="14" height="2" rx="1" fill="rgba(255,255,255,0.4)" />
-                    <rect x="12" y="26" width="10" height="2" rx="1" fill="rgba(255,255,255,0.25)" />
-                    <rect x="40" y="38" width="26" height="20" rx="4" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" fill="rgba(255,255,255,0.08)" />
-                    <rect x="46" y="44" width="14" height="2" rx="1" fill="rgba(255,255,255,0.4)" />
-                    <rect x="46" y="50" width="10" height="2" rx="1" fill="rgba(255,255,255,0.25)" />
-                    <path d="M32 30l8 8" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeLinecap="round" />
-                    <path d="M37 38l3-3" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeLinecap="round" />
-                    <path d="M36 35l4 1" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                </div>
-              </div>
-              <div
-                className="pulso-fade-up flex flex-col rounded-2xl border border-[#E2E8F0] bg-white p-5"
-                style={{ transitionDelay: "220ms" }}
-              >
-                <span className="text-sm font-bold text-[#0F172A]">Reserva la Reunión</span>
-                <span className="mt-1 text-xs font-normal text-[#475569]">Agenda</span>
-                <div className="mt-auto flex items-center justify-center py-4">
-                  <svg width="110" height="100" viewBox="0 0 72 64" fill="none">
-                    <circle cx="36" cy="32" r="26" stroke="#437AEF" strokeWidth="1.5" opacity="0.2" />
-                    <path d="M36 6v8" stroke="#437AEF" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
-                    <path d="M36 50v8" stroke="#437AEF" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
-                    <circle cx="36" cy="32" r="4" fill="#437AEF" opacity="0.2" />
-                    <path d="M36 32l12-8" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M36 32l-6 10" stroke="#437AEF" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
-                    <circle cx="36" cy="32" r="2" fill="#437AEF" />
-                  </svg>
-                </div>
-              </div>
-              <div
-                className="pulso-fade-up flex flex-col rounded-2xl p-5"
-                style={{ background: "#475569", transitionDelay: "340ms" }}
-              >
-                <span className="text-sm font-bold text-white">Nunca Pierdes un Lead</span>
-                <span className="mt-1 text-xs font-normal" style={{ color: "rgba(255,255,255,0.6)" }}>Seguimiento</span>
-                <div className="mt-auto flex items-center justify-center py-4">
-                  <svg width="110" height="100" viewBox="0 0 72 64" fill="none">
-                    <path d="M8 48V20c0-2 1-3 3-3h10c2 0 3 1 3 3v28" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" fill="rgba(255,255,255,0.06)" />
-                    <path d="M24 48V26c0-2 1-3 3-3h10c2 0 3 1 3 3v22" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" fill="rgba(255,255,255,0.08)" />
-                    <path d="M40 48V14c0-2 1-3 3-3h10c2 0 3 1 3 3v34" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" fill="rgba(255,255,255,0.1)" />
-                    <path d="M56 48V10c0-2 1-3 3-3h4c2 0 3 1 3 3v38" stroke="rgba(67,122,239,0.7)" strokeWidth="1.5" fill="rgba(67,122,239,0.15)" />
-                    <line x1="4" y1="48" x2="68" y2="48" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
-                    <path d="M10 36l14-4 14-6 14-10" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                    <circle cx="52" cy="16" r="2.5" fill="rgba(67,122,239,0.8)" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function StatsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -1379,7 +995,7 @@ function StatsSection() {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
           {STATS.map((s, i) => (
             <div
               key={s.value}
@@ -1408,82 +1024,7 @@ function StatsSection() {
   );
 }
 
-function HowItWorks() {
-  return (
-    <section
-      className="bg-[#F1F5F9] px-6 py-20 md:py-28"
-    >
-      <div className="mx-auto max-w-[1380px]">
-        <div className="mx-auto max-w-2xl text-center">
-          <span
-            className="text-sm font-semibold uppercase tracking-widest text-[#437AEF]"
-          >
-            Proceso
-          </span>
-          <h2
-            className="mt-3 text-3xl font-extrabold tracking-tight text-[#0F172A] md:text-4xl"
-          >
-            Tres pasos. Cero complicaciones.
-          </h2>
-        </div>
 
-        <div className="pulso-steps-grid mt-14 grid gap-8 md:grid-cols-3">
-          {STEPS.map((step, i) => (
-            <div
-              key={step.number}
-              className="pulso-fade-up text-center"
-              style={{ transitionDelay: `${i * 120}ms` }}
-            >
-              <div
-                className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-2xl text-2xl font-extrabold text-white"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #798AFF 0%, #5268FF 100%)",
-                }}
-              >
-                {step.number}
-              </div>
-              <h3
-                className="mt-6 text-xl font-bold text-[#0F172A]"
-              >
-                {step.title}
-              </h3>
-              <p
-                className="mt-3 leading-relaxed text-[#475569]"
-              >
-                {step.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CTAFinal() {
-  return (
-    <section
-      id="cta-final"
-      className="bg-[#0A1C43] px-6 py-20 md:py-28"
-    >
-      <div className="mx-auto max-w-[1380px] text-center">
-        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white md:text-5xl">
-          ¿Listo para potenciar tu negocio?
-        </h2>
-        <p
-          className="mx-auto mt-5 max-w-lg text-lg leading-relaxed"
-          style={{ color: "rgba(255,255,255,0.65)" }}
-        >
-          Sin compromiso. Te mostramos todo en 15 minutos.
-        </p>
-        <button className="pulso-cta-pulse mt-10 rounded-[10px] bg-[#437AEF] px-8 py-4 text-base font-bold text-white transition-colors hover:bg-[#1C4EBA]">
-          Agendar una llamada
-        </button>
-      </div>
-    </section>
-  );
-}
 
 function Footer() {
   return (
