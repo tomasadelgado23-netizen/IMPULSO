@@ -10,7 +10,7 @@ function LightbulbIcon() {
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
-      stroke="#437AEF"
+      stroke="#D4A017"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -30,7 +30,7 @@ function RocketIcon() {
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
-      stroke="#437AEF"
+      stroke="#D4A017"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -51,7 +51,7 @@ function ChatIcon() {
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
-      stroke="#437AEF"
+      stroke="#D4A017"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -163,7 +163,7 @@ function SectionDivider() {
         style={{
           maxWidth: 400,
           width: "100%",
-          background: "linear-gradient(90deg, transparent, #437AEF, transparent)",
+          background: "linear-gradient(90deg, transparent, #D4A017, transparent)",
           transform: visible ? "scaleX(1)" : "scaleX(0)",
           transformOrigin: "center",
           transition: "transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
@@ -286,30 +286,6 @@ export default function PulsoPage() {
           animation-delay: 0.6s;
         }
 
-        @keyframes pulso-cta-glow {
-          0%, 100% {
-            box-shadow: 0 0 0 0 rgba(67, 122, 239, 0);
-          }
-          50% {
-            box-shadow: 0 0 20px 4px rgba(67, 122, 239, 0.35);
-          }
-        }
-
-        .pulso-cta-pulse {
-          animation: pulso-cta-glow 3s ease-in-out infinite;
-        }
-
-        .pulso-feature-card {
-          box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-          border-color: #E2E8F0;
-          transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
-        }
-        .pulso-feature-card:hover {
-          box-shadow: 0 12px 32px rgba(67,122,239,0.15), 0 4px 12px rgba(0,0,0,0.06);
-          border-color: #437AEF;
-          transform: translateY(-4px);
-        }
-
         .pulso-stat-card {
           position: relative;
           overflow: hidden;
@@ -321,7 +297,7 @@ export default function PulsoPage() {
           left: 0;
           right: 0;
           height: 3px;
-          background: linear-gradient(90deg, #798AFF, #437AEF);
+          background: linear-gradient(90deg, #B8860B, #E8B923, #F5D547);
         }
 
 
@@ -332,13 +308,14 @@ export default function PulsoPage() {
         }
 
         .pulso-hero-bg {
-          background: linear-gradient(135deg, #798AFF 0%, #5268FF 25%, #437AEF 50%, #798AFF 75%, #5268FF 100%);
+          background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #191919 50%, #0a0a0a 75%, #000000 100%);
           background-size: 300% 300%;
           animation: pulso-gradient-shift 8s ease infinite;
         }
 
         .pulso-gradient-text {
-          background: linear-gradient(135deg, #FFFFFF 0%, #C8D9FE 50%, #E0E7FF 100%);
+          background: linear-gradient(135deg, #E8B923 0%, #F5D547 50%, #D4A017 100%);
+          background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -434,7 +411,6 @@ export default function PulsoPage() {
             animation: none !important;
             transition: none !important;
           }
-          .pulso-cta-pulse,
           .pulso-hero-bg {
             animation: none !important;
           }
@@ -450,12 +426,13 @@ export default function PulsoPage() {
         <SectionDivider />
         <StatsSection />
         <SectionDivider />
-        <section className="px-6 py-20 md:py-28 text-center">
+        <section className="px-6 py-20 md:py-28 text-center" style={{ background: "#000000" }}>
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl" style={{ fontFamily: "var(--font-jakarta)" }}>
-              Tu departamento de marketing externo.
+            <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl" style={{ fontFamily: "var(--font-jakarta)" }}>
+              Tu departamento de{" "}
+              <span style={{ color: "#E8B923" }}>marketing externo.</span>
             </h2>
-            <p className="mt-6 text-lg text-slate-500 leading-relaxed">
+            <p className="mt-6 text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
               Un sistema comercial automatizado potenciado con IA, que se nutre de una estrategia de marketing con investigación de mercado. Nos transformamos en el departamento de marketing de tu empresa.
             </p>
           </div>
@@ -493,7 +470,7 @@ function HeroSection() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.18) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(10,28,67,0.15) 0%, transparent 50%)",
+            "radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(232,185,35,0.08) 0%, transparent 55%)",
         }}
       />
       <div className="relative mx-auto max-w-[1380px]">
@@ -523,7 +500,7 @@ function HeroSection() {
           >
             <div
               className="flex items-center gap-2 px-5 py-3"
-              style={{ background: "rgba(10, 28, 67, 0.6)" }}
+              style={{ background: "rgba(0, 0, 0, 0.8)" }}
             >
               <span className="block h-3 w-3 rounded-full bg-[#FF5F57]" />
               <span className="block h-3 w-3 rounded-full bg-[#FEBC2E]" />
@@ -591,14 +568,14 @@ function AppFrame({ title, activeNav, children }: { title: string; activeNav: nu
   ];
   return (
     <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06)" }}>
-      <div className="flex items-center gap-2 px-4 py-2.5" style={{ background: "#0A1C43" }}>
+      <div className="flex items-center gap-2 px-4 py-2.5" style={{ background: "#000000" }}>
         <span className="block h-[9px] w-[9px] rounded-full bg-[#FF5F57]" />
         <span className="block h-[9px] w-[9px] rounded-full bg-[#FEBC2E]" />
         <span className="block h-[9px] w-[9px] rounded-full bg-[#28C840]" />
         <span className="ml-3 text-[11px] font-medium" style={{ color: "rgba(255,255,255,0.45)" }}>{title}</span>
       </div>
       <div className="flex" style={{ background: "#F8FAFC" }}>
-        <div className="hidden md:flex flex-col py-3 px-1.5 gap-1" style={{ width: 52, background: "#0F1D35" }}>
+        <div className="hidden md:flex flex-col py-3 px-1.5 gap-1" style={{ width: 52, background: "#0a0a0a" }}>
           <div className="flex items-center justify-center mb-2 py-1">
             <svg width="16" height="13" viewBox="0 0 30 24" fill="none">
               <path d="M7 16L15 6l8 10" stroke="rgba(255,255,255,0.3)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -606,8 +583,8 @@ function AppFrame({ title, activeNav, children }: { title: string; activeNav: nu
             </svg>
           </div>
           {navIcons.map((d, i) => (
-            <div key={i} className="flex items-center justify-center rounded-lg py-2" style={{ background: i === activeNav ? "rgba(67,122,239,0.2)" : "transparent" }}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={i === activeNav ? "#437AEF" : "rgba(255,255,255,0.3)"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d={d}/></svg>
+            <div key={i} className="flex items-center justify-center rounded-lg py-2" style={{ background: i === activeNav ? "rgba(232,185,35,0.16)" : "transparent" }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={i === activeNav ? "#E8B923" : "rgba(255,255,255,0.3)"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d={d}/></svg>
             </div>
           ))}
         </div>
@@ -668,10 +645,10 @@ function DiagnosticoMockup() {
           <div className="rounded-lg bg-white mb-3" style={{ border: "1px solid #F1F5F9" }}>
             <div className="px-3 py-2 flex items-center justify-between" style={{ borderBottom: "1px solid #F1F5F9" }}>
               <div className="flex items-center gap-2">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
                 <span className="text-[10px] font-bold text-[#0F172A]">Checklist de auditoría</span>
               </div>
-              <span className={`mockup-fade-in${inView ? " active" : ""} text-[9px] font-medium text-[#437AEF]`} style={{ transitionDelay: "2800ms" }}>{inView ? "5/5 analizado" : ""}</span>
+              <span className={`mockup-fade-in${inView ? " active" : ""} text-[9px] font-medium text-[#D4A017]`} style={{ transitionDelay: "2800ms" }}>{inView ? "5/5 analizado" : ""}</span>
             </div>
             <div className="divide-y divide-[#F8FAFC]">
               {auditItems.map((item, i) => {
@@ -694,7 +671,7 @@ function DiagnosticoMockup() {
           </div>
           <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-3 mb-2`} style={{ background: "#F8FAFC", border: "1px solid #E2E8F0", transitionDelay: "2800ms" }}>
             <div className="flex items-center gap-2 mb-2">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
               <span className="text-[10px] font-bold text-[#0F172A]">Salud general</span>
             </div>
             <div className="flex items-center gap-3">
@@ -704,9 +681,9 @@ function DiagnosticoMockup() {
               <span className="text-xs font-extrabold text-[#F59E0B]">{inView ? "4.2/10" : ""}</span>
             </div>
           </div>
-          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg px-3 py-2 flex items-center gap-2`} style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", transitionDelay: "3200ms" }}>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-            <span className="text-[10px] font-medium text-[#1E40AF]">2 áreas críticas · 2 mejorables · 1 sólida</span>
+          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg px-3 py-2 flex items-center gap-2`} style={{ background: "#191919", border: "1px solid #2A2A2A", transitionDelay: "3200ms" }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8B923" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <span className="text-[10px] font-medium text-[#E8B923]">2 áreas críticas · 2 mejorables · 1 sólida</span>
           </div>
         </div>
       </AppFrame>
@@ -742,12 +719,12 @@ function EstrategiaMockup() {
           </div>
           <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-3 bg-white mb-3`} style={{ border: "1px solid #F1F5F9", transitionDelay: "700ms" }}>
             <div className="flex items-center gap-2 mb-2">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               <span className="text-[10px] font-bold text-[#0F172A]">Público objetivo</span>
             </div>
             <div className="flex items-center gap-2 rounded px-2 py-1.5" style={{ background: "#F8FAFC" }}>
-              <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "#E1EAFE" }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(212,160,23,0.12)" }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               </div>
               <div className="min-w-0">
                 <div className="text-[10px] font-semibold text-[#0F172A]">Empresario 35-55 años</div>
@@ -757,7 +734,7 @@ function EstrategiaMockup() {
           </div>
           <div className="rounded-lg p-3 bg-white mb-3" style={{ border: "1px solid #F1F5F9" }}>
             <div className="flex items-center gap-2 mb-2">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
               <span className="text-[10px] font-bold text-[#0F172A]">Plan de acción</span>
             </div>
             <div className="space-y-1.5">
@@ -774,7 +751,7 @@ function EstrategiaMockup() {
           </div>
           <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-3 bg-white mb-3`} style={{ border: "1px solid #F1F5F9", transitionDelay: "2200ms" }}>
             <div className="flex items-center gap-2 mb-2">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
               <span className="text-[10px] font-bold text-[#0F172A]">Distribución de canales</span>
             </div>
             <div className="space-y-1.5">
@@ -782,16 +759,16 @@ function EstrategiaMockup() {
                 <div key={ch.name} className="flex items-center gap-2">
                   <span className="text-[9px] text-[#94A3B8] w-16 flex-shrink-0">{ch.name}</span>
                   <div className="flex-1 h-1.5 rounded-full" style={{ background: "#E2E8F0" }}>
-                    <div className="h-full rounded-full mockup-bar-grow" style={{ background: i === 0 ? "#437AEF" : i === 1 ? "#798AFF" : i === 2 ? "#22C55E" : "#94A3B8", width: inView ? `${ch.pct}%` : "0%" }} />
+                    <div className="h-full rounded-full mockup-bar-grow" style={{ background: i === 0 ? "#D4A017" : i === 1 ? "#E8B923" : i === 2 ? "#22C55E" : "#94A3B8", width: inView ? `${ch.pct}%` : "0%" }} />
                   </div>
                   <span className="text-[9px] font-semibold text-[#0F172A] w-6 text-right">{ch.pct}%</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg px-3 py-2 flex items-center gap-2`} style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", transitionDelay: "2600ms" }}>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <span className="text-[10px] font-medium text-[#1E40AF] truncate">Mensaje clave: "Resultados medibles desde el primer mes"</span>
+          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg px-3 py-2 flex items-center gap-2`} style={{ background: "#191919", border: "1px solid #2A2A2A", transitionDelay: "2600ms" }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8B923" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span className="text-[10px] font-medium text-[#E8B923] truncate">Mensaje clave: "Resultados medibles desde el primer mes"</span>
           </div>
         </div>
       </AppFrame>
@@ -808,9 +785,9 @@ function SistemaComercialMockup() {
     { label: "Panel", icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0h6" },
   ];
   const feedEvents = [
-    { icon: "lead", text: "Nuevo lead desde Google Ads", detail: "Búsqueda orgánica · asignado", time: "14:32", color: "#437AEF" },
+    { icon: "lead", text: "Nuevo lead desde Google Ads", detail: "Búsqueda orgánica · asignado", time: "14:32", color: "#D4A017" },
     { icon: "bot", text: "IA cualificó lead", detail: "María G. · Salud Visa · derivó a asesor", time: "14:28", color: "#25D366" },
-    { icon: "calendar", text: "Reunión agendada", detail: "Pedro M. · mañana 10:00", time: "14:15", color: "#8B5CF6" },
+    { icon: "calendar", text: "Reunión agendada", detail: "Pedro M. · mañana 10:00", time: "14:15", color: "#0EA5E9" },
     { icon: "check", text: "Lead cerrado ganado", detail: "Carlos R. · Salud Visa · firmó póliza", time: "13:58", color: "#22C55E" },
     { icon: "bot", text: "IA atendió consulta fuera de horario", detail: "Pregunta sobre cobertura dental", time: "02:14", color: "#25D366" },
   ];
@@ -828,8 +805,8 @@ function SistemaComercialMockup() {
               {funnelSteps.map((step, i) => (
                 <div key={step.label} className="flex items-center">
                   <div className="flex flex-col items-center">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={step.icon}/></svg>
-                    <span className="text-[6px] font-semibold text-[#437AEF]">{step.label}</span>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={step.icon}/></svg>
+                    <span className="text-[6px] font-semibold text-[#D4A017]">{step.label}</span>
                   </div>
                   {i < funnelSteps.length - 1 && <svg width="6" height="6" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-0.5"><polyline points="9 18 15 12 9 6"/></svg>}
                 </div>
@@ -860,17 +837,17 @@ function SistemaComercialMockup() {
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2">
-            <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2 text-center`} style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", transitionDelay: "3000ms" }}>
-              <div className="text-lg font-extrabold text-[#437AEF]"><MockupNumber value={12} inView={inView} delay={3000} /></div>
-              <div className="text-[8px] font-semibold text-[#1E40AF]">Leads hoy</div>
+            <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2 text-center`} style={{ background: "rgba(212,160,23,0.10)", border: "1px solid rgba(212,160,23,0.30)", transitionDelay: "3000ms" }}>
+              <div className="text-lg font-extrabold text-[#D4A017]"><MockupNumber value={12} inView={inView} delay={3000} /></div>
+              <div className="text-[8px] font-semibold text-[#D4A017]">Leads hoy</div>
             </div>
             <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2 text-center`} style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", transitionDelay: "3200ms" }}>
               <div className="text-lg font-extrabold text-[#22C55E]"><MockupNumber value={8} inView={inView} delay={3200} /></div>
               <div className="text-[8px] font-semibold text-[#166534]">Cualificados</div>
             </div>
-            <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2 text-center`} style={{ background: "#F5F3FF", border: "1px solid #DDD6FE", transitionDelay: "3400ms" }}>
-              <div className="text-lg font-extrabold text-[#8B5CF6]"><MockupNumber value={3} inView={inView} delay={3400} /></div>
-              <div className="text-[8px] font-semibold text-[#5B21B6]">Reuniones</div>
+            <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2 text-center`} style={{ background: "#F0F9FF", border: "1px solid #BAE6FD", transitionDelay: "3400ms" }}>
+              <div className="text-lg font-extrabold text-[#0284C7]"><MockupNumber value={3} inView={inView} delay={3400} /></div>
+              <div className="text-[8px] font-semibold text-[#075985]">Reuniones</div>
             </div>
           </div>
         </div>
@@ -895,7 +872,7 @@ function SuperpowerSection({ index, icon, title, subtitle, bullets, mockup }: {
       style={{ marginTop: index === 0 ? 0 : 48 }}
     >
       <div className="flex-1 pulso-fade-up" style={{ transitionDelay: `${index * 100}ms` }}>
-        <div className="flex h-14 w-14 items-center justify-center rounded-xl" style={{ background: "#E1EAFE" }}>
+        <div className="flex h-14 w-14 items-center justify-center rounded-xl" style={{ background: "rgba(212,160,23,0.12)" }}>
           {icon}
         </div>
         <h3 className="mt-5 text-2xl font-extrabold text-[#0F172A] md:text-3xl">{title}</h3>
@@ -904,7 +881,7 @@ function SuperpowerSection({ index, icon, title, subtitle, bullets, mockup }: {
           {bullets.map((b) => (
             <li key={b} className="flex items-start gap-3">
               <div className="mt-1.5 flex-shrink-0">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#437AEF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <span className="text-base text-[#334155]">{b}</span>
             </li>
@@ -929,7 +906,7 @@ function FeaturesSection() {
     <section id="superpoderes" className="px-6 py-20 md:py-28">
       <div className="mx-auto max-w-[1380px]">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-widest text-[#437AEF]">
+          <span className="text-sm font-semibold uppercase tracking-widest text-[#D4A017]">
             3 etapas
           </span>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0F172A] md:text-4xl">
@@ -984,7 +961,7 @@ function StatsSection() {
       <div className="mx-auto max-w-[1380px]">
         <div className="mx-auto max-w-2xl text-center">
           <span
-            className="text-sm font-semibold uppercase tracking-widest text-[#437AEF]"
+            className="text-sm font-semibold uppercase tracking-widest text-[#D4A017]"
           >
             Resultados
           </span>
@@ -1007,7 +984,7 @@ function StatsSection() {
               }}
             >
               <div
-                className="text-4xl font-extrabold text-[#437AEF] md:text-5xl"
+                className="text-4xl font-extrabold text-[#D4A017] md:text-5xl"
               >
                 <AnimatedStatValue value={s.value} isVisible={isVisible} />
               </div>
@@ -1029,7 +1006,7 @@ function StatsSection() {
 function Footer() {
   return (
     <footer
-      className="border-t border-t-[#152A54] bg-[#0A1C43] px-6 py-8"
+      className="border-t border-t-[#191919] bg-[#000000] px-6 py-8"
     >
       <div className="mx-auto flex max-w-[1380px] flex-col items-center justify-between gap-4 md:flex-row">
         <div className="flex flex-col items-center gap-1 md:items-start">
