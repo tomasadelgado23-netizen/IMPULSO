@@ -465,7 +465,7 @@ function Header() {
 
 function HeroSection() {
   return (
-    <section className="pulso-hero-bg relative overflow-hidden px-6 pb-28 pt-36 md:pb-36 md:pt-44">
+    <section className="pulso-hero-bg relative overflow-hidden px-6 pt-36 md:pt-44 flex items-center" style={{ minHeight: "100vh" }}>
       <div
         className="absolute inset-0"
         style={{
@@ -633,17 +633,36 @@ function DiagnosticoMockup() {
 
 function EstrategiaMockup() {
   const { ref, inView } = useInView(0.3);
-  const actionItems = [
-    { action: "Landing optimizada + SEO local", priority: "Alta", color: "#EF4444" },
-    { action: "Google Ads — campaña de búsqueda", priority: "Alta", color: "#EF4444" },
-    { action: "Meta Ads — Instagram + Facebook", priority: "Media", color: "#F59E0B" },
-    { action: "Bot WhatsApp + CRM automatizado", priority: "Media", color: "#F59E0B" },
+  const deliverables = [
+    "Estudio de mercado",
+    "Análisis del servicio",
+    "Estrategia de marketing",
+    "Estrategia de comunicación",
+    "Plan de acción",
   ];
-  const channels = [
-    { name: "Google Ads", pct: 40 },
-    { name: "Meta Ads", pct: 30 },
-    { name: "SEO", pct: 20 },
-    { name: "Email", pct: 10 },
+  const phases = [
+    { label: "Fase 1", color: "#D4A017", bg: "rgba(212,160,23,0.12)", left: 0, width: 30 },
+    { label: "Fase 2", color: "#3B82F6", bg: "rgba(59,130,246,0.12)", left: 33, width: 33 },
+    { label: "Fase 3", color: "#22C55E", bg: "rgba(34,197,94,0.12)", left: 69, width: 31 },
+  ];
+  const tracks = [
+    { label: "Investigación de mercado", left: 1, width: 26, color: "#D4A017", bar: "rgba(212,160,23,0.45)" },
+    { label: "Definición de propuesta", left: 6, width: 22, color: "#D4A017", bar: "rgba(212,160,23,0.35)" },
+    { label: "Mensajes y narrativa", left: 30, width: 24, color: "#3B82F6", bar: "rgba(59,130,246,0.45)" },
+    { label: "Landing + activos digitales", left: 36, width: 28, color: "#3B82F6", bar: "rgba(59,130,246,0.35)" },
+    { label: "Configuración de canales", left: 42, width: 20, color: "#3B82F6", bar: "rgba(59,130,246,0.28)" },
+    { label: "Lanzamiento de campañas", left: 66, width: 26, color: "#22C55E", bar: "rgba(34,197,94,0.45)" },
+    { label: "Automatización CRM + bot", left: 71, width: 24, color: "#22C55E", bar: "rgba(34,197,94,0.35)" },
+    { label: "Medición y optimización", left: 78, width: 20, color: "#22C55E", bar: "rgba(34,197,94,0.28)" },
+  ];
+  const nodes = [
+    { left: 4, top: 6, color: "#EF4444" },
+    { left: 27, top: 24, color: "#D4A017" },
+    { left: 38, top: 6, color: "#3B82F6" },
+    { left: 55, top: 41, color: "#22C55E" },
+    { left: 69, top: 24, color: "#EF4444" },
+    { left: 84, top: 6, color: "#D4A017" },
+    { left: 92, top: 58, color: "#22C55E" },
   ];
   return (
     <div ref={ref} className="pulso-fade-up w-full max-w-xl mx-auto" style={{ transitionDelay: "200ms" }}>
@@ -657,58 +676,110 @@ function EstrategiaMockup() {
             </div>
             <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534]">Aprobado</span>
           </div>
-          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-3 bg-white mb-3`} style={{ border: "1px solid #F1F5F9", transitionDelay: "700ms" }}>
-            <div className="flex items-center gap-2 mb-2">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <span className="text-[10px] font-bold text-[#0F172A]">Público objetivo</span>
-            </div>
-            <div className="flex items-center gap-2 rounded px-2 py-1.5" style={{ background: "#F8FAFC" }}>
-              <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(212,160,23,0.12)" }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              </div>
-              <div className="min-w-0">
-                <div className="text-[10px] font-semibold text-[#0F172A]">Empresario 35-55 años</div>
-                <div className="text-[9px] text-[#94A3B8]">Valencia · Factura 200K-2M · Busca crecer online</div>
-              </div>
-            </div>
-          </div>
+
           <div className="rounded-lg p-3 bg-white mb-3" style={{ border: "1px solid #F1F5F9" }}>
-            <div className="flex items-center gap-2 mb-2">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              <span className="text-[10px] font-bold text-[#0F172A]">Plan de acción</span>
+            <div className="flex items-center gap-2 mb-2.5">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              <span className="text-[10px] font-bold text-[#0F172A]">Entregables</span>
             </div>
             <div className="space-y-1.5">
-              {actionItems.map((item, i) => (
-                <div key={item.action} className={`mockup-slide-in${inView ? " active" : ""} flex items-center justify-between rounded px-2 py-1.5 gap-2`} style={{ background: "#F8FAFC", transitionDelay: `${1100 + i * 250}ms` }}>
-                  <div className="flex items-center gap-2 min-w-0">
-                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: item.color }} />
-                    <span className="text-[10px] text-[#0F172A] truncate">{item.action}</span>
+              {deliverables.map((item, i) => (
+                <div key={item} className={`mockup-slide-in${inView ? " active" : ""} flex items-center gap-2.5`} style={{ transitionDelay: `${600 + i * 280}ms` }}>
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(212,160,23,0.12)" }}>
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   </div>
-                  <span className="text-[9px] font-medium flex-shrink-0" style={{ color: item.color }}>{item.priority}</span>
+                  <span className="text-[11px] font-semibold text-[#0F172A]">{item}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-3 bg-white mb-3`} style={{ border: "1px solid #F1F5F9", transitionDelay: "2200ms" }}>
-            <div className="flex items-center gap-2 mb-2">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-              <span className="text-[10px] font-bold text-[#0F172A]">Distribución de canales</span>
-            </div>
-            <div className="space-y-1.5">
-              {channels.map((ch, i) => (
-                <div key={ch.name} className="flex items-center gap-2">
-                  <span className="text-[9px] text-[#94A3B8] w-16 flex-shrink-0">{ch.name}</span>
-                  <div className="flex-1 h-1.5 rounded-full" style={{ background: "#E2E8F0" }}>
-                    <div className="h-full rounded-full mockup-bar-grow" style={{ background: i === 0 ? "#D4A017" : i === 1 ? "#E8B923" : i === 2 ? "#22C55E" : "#94A3B8", width: inView ? `${ch.pct}%` : "0%" }} />
-                  </div>
-                  <span className="text-[9px] font-semibold text-[#0F172A] w-6 text-right">{ch.pct}%</span>
-                </div>
-              ))}
-            </div>
+
+          <div className="flex items-center gap-2 my-3">
+            <div className="flex-1 h-px" style={{ background: "#E2E8F0" }} />
+            <span className="text-[8px] font-semibold uppercase tracking-wider text-[#94A3B8]">Hoja de ruta</span>
+            <div className="flex-1 h-px" style={{ background: "#E2E8F0" }} />
           </div>
-          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg px-3 py-2 flex items-center gap-2`} style={{ background: "#191919", border: "1px solid #2A2A2A", transitionDelay: "2600ms" }}>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8B923" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <span className="text-[10px] font-medium text-[#E8B923] truncate">Mensaje clave: "Resultados medibles desde el primer mes"</span>
+
+          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg bg-white overflow-hidden`} style={{ border: "1px solid #F1F5F9", transitionDelay: "2200ms" }}>
+            <div className="flex items-center gap-2 px-3 pt-2.5 pb-1.5">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              <span className="text-[10px] font-bold text-[#0F172A]">Cronograma estratégico</span>
+              <span className="ml-auto text-[7px] font-medium text-[#94A3B8]">12 semanas</span>
+            </div>
+            <div className="overflow-x-auto">
+              <div style={{ minWidth: 520, position: "relative", padding: "6px 8px 10px" }}>
+                <div style={{ position: "relative", display: "flex", gap: 4, marginBottom: 8 }}>
+                  {phases.map((p, i) => (
+                    <div
+                      key={p.label}
+                      className={`mockup-slide-in${inView ? " active" : ""}`}
+                      style={{
+                        width: `${p.width}%`,
+                        transitionDelay: `${2400 + i * 200}ms`,
+                        background: p.bg,
+                        border: `1px solid ${p.color}`,
+                        borderRadius: 5,
+                        padding: "3px 6px",
+                      }}
+                    >
+                      <span className="font-bold" style={{ fontSize: 8, color: p.color }}>{p.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ position: "relative", height: 96 }}>
+                  {[0, 1, 2, 3, 4].map((g) => (
+                    <div key={g} style={{ position: "absolute", left: `${g * 25}%`, top: 0, bottom: 0, width: 1, background: "#F1F5F9" }} />
+                  ))}
+
+                  {tracks.map((t, i) => (
+                    <div key={t.label} style={{ position: "absolute", top: i * 12, left: `${t.left}%`, width: `${t.width}%`, height: 8 }}>
+                      <div
+                        className="mockup-bar-grow"
+                        style={{
+                          height: 8,
+                          borderRadius: 3,
+                          background: t.bar,
+                          borderLeft: `2px solid ${t.color}`,
+                          width: inView ? "100%" : "0%",
+                          transitionDelay: `${2800 + i * 120}ms`,
+                          display: "flex",
+                          alignItems: "center",
+                          paddingLeft: 4,
+                          overflow: "hidden",
+                        }}
+                      >
+                        <span style={{ fontSize: 6, lineHeight: 1, color: t.color, whiteSpace: "nowrap", fontWeight: 600 }}>{t.label}</span>
+                      </div>
+                    </div>
+                  ))}
+
+                  {nodes.map((n, i) => (
+                    <div
+                      key={i}
+                      className={`mockup-fade-in${inView ? " active" : ""}`}
+                      style={{
+                        position: "absolute",
+                        left: `${n.left}%`,
+                        top: `${n.top}px`,
+                        width: 5,
+                        height: 5,
+                        borderRadius: "50%",
+                        background: n.color,
+                        boxShadow: `0 0 0 2px white, 0 0 0 3px ${n.color}55`,
+                        transitionDelay: `${3400 + i * 90}ms`,
+                      }}
+                    />
+                  ))}
+                </div>
+
+                <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
+                  {["S1", "S3", "S6", "S9", "S12"].map((w) => (
+                    <span key={w} style={{ fontSize: 6, color: "#CBD5E1", fontWeight: 600 }}>{w}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </AppFrame>
@@ -716,82 +787,155 @@ function EstrategiaMockup() {
   );
 }
 
+function ProcesoFrame({ step, label, color, children, inView, delay }: { step: number; label: string; color: string; children: React.ReactNode; inView: boolean; delay: number }) {
+  return (
+    <div className={`mockup-fade-in${inView ? " active" : ""} rounded-2xl overflow-hidden flex flex-col`} style={{ background: "#0a0a0a", boxShadow: "0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.08)", transitionDelay: `${delay}ms` }}>
+      <div className="flex items-center gap-2.5 px-4 py-3">
+        <div className="flex h-7 w-7 items-center justify-center rounded-full text-sm font-extrabold flex-shrink-0" style={{ background: color, color: "#000000" }}>{step}</div>
+        <span className="text-[13px] font-bold tracking-tight text-white">{label}</span>
+        <div className="ml-auto flex items-center gap-1.5">
+          <span className="block h-[7px] w-[7px] rounded-full bg-[#FF5F57]" />
+          <span className="block h-[7px] w-[7px] rounded-full bg-[#FEBC2E]" />
+          <span className="block h-[7px] w-[7px] rounded-full bg-[#28C840]" />
+        </div>
+      </div>
+      <div className="flex-1 p-3" style={{ background: "#F8FAFC" }}>{children}</div>
+    </div>
+  );
+}
+
+function FlowArrow({ direction }: { direction: "right" | "down" }) {
+  const isRight = direction === "right";
+  return (
+    <div className={`flex items-center justify-center ${isRight ? "px-1" : "py-1"}`}>
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ filter: "drop-shadow(0 2px 4px rgba(212,160,23,0.25))" }}>
+        {isRight ? <><line x1="5" y1="12" x2="19" y2="12" /><polyline points="13 6 19 12 13 18" /></> : <><line x1="12" y1="5" x2="12" y2="19" /><polyline points="6 13 12 19 18 13" /></>}
+      </svg>
+    </div>
+  );
+}
+
 function SistemaComercialMockup() {
   const { ref, inView } = useInView(0.3);
-  const funnelSteps = [
-    { label: "Anuncios", icon: "M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" },
-    { label: "IA", icon: "M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 01-1.591.659H9.061a2.25 2.25 0 01-1.591-.659L5 14.5m14 0V5a2 2 0 00-2-2H7a2 2 0 00-2 2v9.5" },
-    { label: "CRM", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
-    { label: "Panel", icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0h6" },
+  const kanbanColumns = [
+    { title: "Nuevo", color: "#94A3B8", cards: [{ name: "María G.", tag: "Salud Visa", time: "hace 2m" }] },
+    { title: "Contactado", color: "#0EA5E9", cards: [{ name: "Pedro M.", tag: "RC Médica", time: "hace 18m" }] },
+    { title: "Calificado", color: "#D4A017", cards: [{ name: "Lucía F.", tag: "Salud Visa", time: "hoy" }] },
+    { title: "Cerrado", color: "#22C55E", cards: [{ name: "Carlos R.", tag: "Salud Visa", time: "ayer" }] },
   ];
-  const feedEvents = [
-    { icon: "lead", text: "Nuevo lead desde Google Ads", detail: "Búsqueda orgánica · asignado", time: "14:32", color: "#D4A017" },
-    { icon: "bot", text: "IA cualificó lead", detail: "María G. · Salud Visa · derivó a asesor", time: "14:28", color: "#25D366" },
-    { icon: "calendar", text: "Reunión agendada", detail: "Pedro M. · mañana 10:00", time: "14:15", color: "#0EA5E9" },
-    { icon: "check", text: "Lead cerrado ganado", detail: "Carlos R. · Salud Visa · firmó póliza", time: "13:58", color: "#22C55E" },
-    { icon: "bot", text: "IA atendió consulta fuera de horario", detail: "Pregunta sobre cobertura dental", time: "02:14", color: "#25D366" },
+  const chart = [
+    { label: "L", pct: 35 },
+    { label: "M", pct: 48 },
+    { label: "X", pct: 42 },
+    { label: "J", pct: 64 },
+    { label: "V", pct: 72 },
+    { label: "S", pct: 88 },
+    { label: "D", pct: 96 },
   ];
   return (
-    <div ref={ref} className="pulso-fade-up w-full max-w-xl mx-auto" style={{ transitionDelay: "200ms" }}>
-      <AppFrame title="impulso — Sistema Comercial" activeNav={3}>
-        <div className="p-3" style={{ position: "relative" }}>
-          <MockupCursor animationName="cursor-crm" duration={7} isVisible={inView} />
-          <div className={`mockup-fade-in${inView ? " active" : ""} flex items-center justify-between mb-3 rounded-lg px-3 py-2`} style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", transitionDelay: "700ms" }}>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
-              <span className="text-[10px] font-bold text-[#166534]">Sistema activo 24/7</span>
+    <div ref={ref} className="pulso-fade-up w-full max-w-4xl mx-auto" style={{ transitionDelay: "200ms" }}>
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] md:grid-rows-[auto_auto_auto] items-stretch gap-0">
+        <div className="md:col-start-1 md:row-start-1">
+          <ProcesoFrame step={1} label="Anuncio" color="#D4A017" inView={inView} delay={400}>
+            <div className="rounded-lg bg-white p-3 h-full flex flex-col" style={{ border: "1px solid #E2E8F0" }}>
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded" style={{ background: "#E8F0FE", color: "#1A73E8" }}>Anuncio</span>
+                <span className="text-[10px] text-[#202124]">altafe.eu</span>
+              </div>
+              <div className="text-[13px] font-bold leading-snug mb-1" style={{ color: "#1A0DAB" }}>Seguro de Salud para Expatriados</div>
+              <div className="text-[10px] leading-relaxed text-[#4D5156] mb-3">Cobertura internacional desde el primer día. Atención en español y asesor dedicado para tu trámite de visa.</div>
+              <button className="mt-auto self-start rounded-full px-3 py-1.5 text-[10px] font-bold text-white" style={{ background: "#1A73E8" }}>Visitar sitio</button>
             </div>
-            <div className="flex items-center gap-1">
-              {funnelSteps.map((step, i) => (
-                <div key={step.label} className="flex items-center">
-                  <div className="flex flex-col items-center">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={step.icon}/></svg>
-                    <span className="text-[6px] font-semibold text-[#D4A017]">{step.label}</span>
-                  </div>
-                  {i < funnelSteps.length - 1 && <svg width="6" height="6" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-0.5"><polyline points="9 18 15 12 9 6"/></svg>}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="rounded-lg bg-white mb-3" style={{ border: "1px solid #F1F5F9" }}>
-            <div className="px-3 py-2 flex items-center justify-between" style={{ borderBottom: "1px solid #F1F5F9" }}>
-              <span className="text-[10px] font-bold text-[#0F172A]">Feed en vivo</span>
-              <span className="text-[8px] font-medium text-[#94A3B8]">HOY</span>
-            </div>
-            <div className="divide-y divide-[#F8FAFC]">
-              {feedEvents.map((event, i) => (
-                <div key={event.time} className={`mockup-feed-item${inView ? " active" : ""} px-3 py-2 flex items-start gap-2`} style={{ transitionDelay: `${1000 + i * 400}ms` }}>
-                  <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: `${event.color}15` }}>
-                    {event.icon === "bot" && <svg width="10" height="10" viewBox="0 0 24 24" fill={event.color}><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7v1H3v-1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2zM4 16h16v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2z"/></svg>}
-                    {event.icon === "lead" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={event.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>}
-                    {event.icon === "calendar" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={event.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>}
-                    {event.icon === "check" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={event.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-[10px] font-semibold text-[#0F172A]">{event.text}</div>
-                    <div className="text-[9px] text-[#94A3B8]">{event.detail}</div>
-                  </div>
-                  <span className="text-[8px] text-[#CBD5E1] flex-shrink-0">{event.time}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="grid grid-cols-3 gap-2">
-            <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2 text-center`} style={{ background: "rgba(212,160,23,0.10)", border: "1px solid rgba(212,160,23,0.30)", transitionDelay: "3000ms" }}>
-              <div className="text-lg font-extrabold text-[#D4A017]"><MockupNumber value={12} inView={inView} delay={3000} /></div>
-              <div className="text-[8px] font-semibold text-[#D4A017]">Leads hoy</div>
-            </div>
-            <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2 text-center`} style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", transitionDelay: "3200ms" }}>
-              <div className="text-lg font-extrabold text-[#22C55E]"><MockupNumber value={8} inView={inView} delay={3200} /></div>
-              <div className="text-[8px] font-semibold text-[#166534]">Cualificados</div>
-            </div>
-            <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-2 text-center`} style={{ background: "#F0F9FF", border: "1px solid #BAE6FD", transitionDelay: "3400ms" }}>
-              <div className="text-lg font-extrabold text-[#0284C7]"><MockupNumber value={3} inView={inView} delay={3400} /></div>
-              <div className="text-[8px] font-semibold text-[#075985]">Reuniones</div>
-            </div>
-          </div>
+          </ProcesoFrame>
         </div>
-      </AppFrame>
+
+        <div className="hidden md:flex md:col-start-2 md:row-start-1 items-center">
+          <FlowArrow direction="right" />
+        </div>
+        <div className="flex md:hidden justify-center"><FlowArrow direction="down" /></div>
+
+        <div className="md:col-start-3 md:row-start-1">
+          <ProcesoFrame step={2} label="Bot de WhatsApp con IA" color="#25D366" inView={inView} delay={700}>
+            <div className="rounded-lg overflow-hidden h-full flex flex-col" style={{ border: "1px solid #E2E8F0" }}>
+              <div className="flex items-center gap-2 px-3 py-2" style={{ background: "#075E54" }}>
+                <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "#25D366" }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7v1H3v-1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2zM4 16h16v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2z"/></svg>
+                </div>
+                <div>
+                  <div className="text-[11px] font-bold text-white leading-none">Alta Fe</div>
+                  <div className="text-[8px] text-[#A7D8C9] leading-none mt-0.5">en línea</div>
+                </div>
+              </div>
+              <div className="flex-1 flex flex-col gap-1.5 p-2.5" style={{ background: "#ECE5DD" }}>
+                <div className="self-end max-w-[85%] rounded-lg rounded-tr-none px-2.5 py-1.5 text-[10px] leading-snug" style={{ background: "#DCF8C6", color: "#0F172A" }}>Hola, vi el anuncio y quiero información</div>
+                <div className="self-start max-w-[85%] rounded-lg rounded-tl-none px-2.5 py-1.5 text-[10px] leading-snug bg-white" style={{ color: "#0F172A" }}>¡Hola! Soy el asistente de Alta Fe. ¿En qué país resides actualmente?</div>
+                <div className="self-end max-w-[85%] rounded-lg rounded-tr-none px-2.5 py-1.5 text-[10px] leading-snug" style={{ background: "#DCF8C6", color: "#0F172A" }}>España</div>
+              </div>
+            </div>
+          </ProcesoFrame>
+        </div>
+
+        <div className="hidden md:flex md:col-start-1 md:col-span-3 md:row-start-2 justify-center">
+          <FlowArrow direction="down" />
+        </div>
+        <div className="flex md:hidden justify-center"><FlowArrow direction="down" /></div>
+
+        <div className="md:col-start-1 md:row-start-3">
+          <ProcesoFrame step={3} label="Pipeline CRM" color="#D4A017" inView={inView} delay={1000}>
+            <div className="grid grid-cols-4 gap-1.5 h-full">
+              {kanbanColumns.map((col) => (
+                <div key={col.title} className="flex flex-col gap-1.5 min-w-0">
+                  <div className="flex items-center gap-1">
+                    <span className="block h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ background: col.color }} />
+                    <span className="text-[7px] font-bold uppercase tracking-wide truncate" style={{ color: col.color }}>{col.title}</span>
+                  </div>
+                  {col.cards.map((card) => (
+                    <div key={card.name} className="rounded-md bg-white p-1.5" style={{ border: "1px solid #E2E8F0", borderLeft: `2px solid ${col.color}` }}>
+                      <div className="text-[8px] font-bold text-[#0F172A] truncate">{card.name}</div>
+                      <div className="mt-0.5 inline-block rounded px-1 py-0.5 text-[6px] font-semibold" style={{ background: "rgba(212,160,23,0.12)", color: "#D4A017" }}>{card.tag}</div>
+                      <div className="text-[7px] text-[#94A3B8] mt-0.5">{card.time}</div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </ProcesoFrame>
+        </div>
+
+        <div className="hidden md:flex md:col-start-2 md:row-start-3 items-center">
+          <FlowArrow direction="right" />
+        </div>
+        <div className="flex md:hidden justify-center"><FlowArrow direction="down" /></div>
+
+        <div className="md:col-start-3 md:row-start-3">
+          <ProcesoFrame step={4} label="Dashboard de resultados" color="#D4A017" inView={inView} delay={1300}>
+            <div className="rounded-lg bg-white p-3 h-full flex flex-col" style={{ border: "1px solid #E2E8F0" }}>
+              <div className="grid grid-cols-3 gap-2 mb-3">
+                <div className="text-center">
+                  <div className="text-base font-extrabold text-[#0F172A]"><MockupNumber value={128} inView={inView} delay={1500} /></div>
+                  <div className="text-[7px] font-semibold uppercase tracking-wide text-[#94A3B8]">Leads</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-base font-extrabold text-[#22C55E]"><MockupNumber value={34} inView={inView} delay={1700} /></div>
+                  <div className="text-[7px] font-semibold uppercase tracking-wide text-[#94A3B8]">Conversiones</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-base font-extrabold text-[#D4A017]">{inView ? "4.2x" : "0x"}</div>
+                  <div className="text-[7px] font-semibold uppercase tracking-wide text-[#94A3B8]">ROAS</div>
+                </div>
+              </div>
+              <div className="mt-auto flex items-end justify-between gap-1.5" style={{ height: 56 }}>
+                {chart.map((bar, i) => (
+                  <div key={bar.label} className="flex-1 flex flex-col items-center justify-end gap-1 h-full">
+                    <div className="w-full rounded-t mockup-bar-grow" style={{ background: "linear-gradient(180deg, #E8B923, #D4A017)", height: inView ? `${bar.pct}%` : "0%", transitionDelay: `${1500 + i * 80}ms` }} />
+                    <span className="text-[7px] font-semibold text-[#94A3B8]">{bar.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ProcesoFrame>
+        </div>
+      </div>
     </div>
   );
 }
@@ -843,7 +987,7 @@ function FeaturesSection() {
   ];
 
   return (
-    <section id="superpoderes" className="px-6 py-20 md:py-28">
+    <section id="superpoderes" className="px-6 py-20 md:py-28" style={{ background: "#FFFFFF" }}>
       <div className="mx-auto max-w-[1380px]">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-widest text-[#D4A017]">
@@ -897,7 +1041,7 @@ function StatsSection() {
   }, []);
 
   return (
-    <section id="resultados" className="px-6 py-20 md:py-28" ref={sectionRef}>
+    <section id="resultados" className="px-6 py-20 md:py-28" ref={sectionRef} style={{ background: "#FFFFFF" }}>
       <div className="mx-auto max-w-[1380px]">
         <div className="mx-auto max-w-2xl text-center">
           <span
