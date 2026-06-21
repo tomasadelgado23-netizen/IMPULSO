@@ -493,66 +493,6 @@ function HeroSection() {
           </p>
         </div>
 
-        <div className="pulso-hero-mockup mt-16 md:mt-20">
-          <div
-            className="overflow-hidden rounded-[20px] shadow-2xl"
-            style={{ background: "rgba(255,255,255,0.12)" }}
-          >
-            <div
-              className="flex items-center gap-2 px-5 py-3"
-              style={{ background: "rgba(0, 0, 0, 0.8)" }}
-            >
-              <span className="block h-3 w-3 rounded-full bg-[#FF5F57]" />
-              <span className="block h-3 w-3 rounded-full bg-[#FEBC2E]" />
-              <span className="block h-3 w-3 rounded-full bg-[#28C840]" />
-              <span
-                className="ml-4 text-xs font-medium"
-                style={{ color: "rgba(255,255,255,0.5)" }}
-              >
-                impulso-dashboard
-              </span>
-            </div>
-            <div
-              className="grid grid-cols-2 gap-4 p-6 md:grid-cols-4"
-              style={{ background: "rgba(255,255,255,0.06)" }}
-            >
-              {["Leads", "Conversiones", "ROAS", "Costo/Lead"].map(
-                (label, i) => (
-                  <div
-                    key={label}
-                    className="rounded-xl p-4"
-                    style={{
-                      background: "rgba(255,255,255,0.1)",
-                      animationDelay: `${i * 0.1}s`,
-                    }}
-                  >
-                    <div
-                      className="text-xs font-medium uppercase tracking-wider"
-                      style={{ color: "rgba(255,255,255,0.5)" }}
-                    >
-                      {label}
-                    </div>
-                    <div className="mt-1 text-2xl font-bold text-white">
-                      {["128", "34", "4.2x", "$12"][i]}
-                    </div>
-                    <div
-                      className="mt-1 h-1.5 rounded-full"
-                      style={{ background: "rgba(255,255,255,0.15)" }}
-                    >
-                      <div
-                        className="h-full rounded-full"
-                        style={{
-                          background: "rgba(255,255,255,0.5)",
-                          width: `${[78, 62, 85, 45][i]}%`,
-                        }}
-                      />
-                    </div>
-                  </div>
-                )
-              )}
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
