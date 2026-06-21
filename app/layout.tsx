@@ -26,7 +26,7 @@ export default function RootLayout({
         style={{
           fontFamily:
             "var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif",
-          background: "#FFFFFF",
+          background: "#000000",
         }}
       >
         {children}
