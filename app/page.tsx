@@ -136,7 +136,7 @@ function AnimatedStatValue({ value, isVisible }: { value: string; isVisible: boo
   return <span>{isVisible ? display : `${prefix}0${suffix}`}</span>;
 }
 
-function SectionDivider() {
+function SectionDivider({ bg = "transparent" }: { bg?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -157,7 +157,7 @@ function SectionDivider() {
   }, []);
 
   return (
-    <div ref={ref} className="flex justify-center py-1">
+    <div ref={ref} className="flex justify-center py-1" style={{ background: bg }}>
       <div
         className="h-[2px] rounded-full"
         style={{
@@ -280,11 +280,6 @@ export default function PulsoPage() {
           animation: pulso-hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
           animation-delay: 0.4s;
         }
-        .pulso-hero-mockup {
-          opacity: 0;
-          animation: pulso-hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-          animation-delay: 0.6s;
-        }
 
         .pulso-stat-card {
           position: relative;
@@ -385,27 +380,12 @@ export default function PulsoPage() {
           100% { top: 88%; left: 50%; opacity: 0; transform: scale(1); }
         }
 
-        @keyframes cursor-crm {
-          0% { top: 8%; left: 30%; opacity: 0; transform: scale(1); }
-          3% { top: 8%; left: 30%; opacity: 1; transform: scale(1); }
-          15% { top: 25%; left: 40%; transform: scale(1); }
-          25% { top: 38%; left: 45%; transform: scale(1); }
-          35% { top: 50%; left: 35%; transform: scale(1); }
-          40% { top: 50%; left: 35%; transform: scale(1); }
-          42% { top: 50%; left: 35%; transform: scale(0.85); }
-          44% { top: 50%; left: 35%; transform: scale(1); }
-          55% { top: 50%; left: 35%; transform: scale(1); }
-          75% { top: 85%; left: 55%; transform: scale(1); }
-          90% { top: 85%; left: 55%; opacity: 1; transform: scale(1); }
-          100% { top: 85%; left: 55%; opacity: 0; transform: scale(1); }
-        }
 
         @media (prefers-reduced-motion: reduce) {
           .pulso-fade-up,
           .pulso-hero-headline,
           .pulso-hero-subtitle,
-          .pulso-hero-button,
-          .pulso-hero-mockup {
+          .pulso-hero-button {
             opacity: 1 !important;
             transform: none !important;
             animation: none !important;
@@ -423,12 +403,12 @@ export default function PulsoPage() {
         <HeroSection />
         <SectionDivider />
         <FeaturesSection />
-        <SectionDivider />
+        <SectionDivider bg="#FFFFFF" />
         <StatsSection />
         <SectionDivider />
         <section className="px-6 py-20 md:py-28 text-center" style={{ background: "#000000" }}>
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl" style={{ fontFamily: "var(--font-jakarta)" }}>
+            <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
               Tu departamento de{" "}
               <span style={{ color: "#E8B923" }}>marketing externo.</span>
             </h2>
@@ -491,6 +471,15 @@ function HeroSection() {
             Construimos un sistema comercial personalizado que ayuda a captar,
             ordenar y convertir oportunidades reales.
           </p>
+          <div className="pulso-hero-button mt-10">
+            <a
+              href="mailto:hola@delgado.media"
+              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-bold transition-transform hover:scale-[1.03]"
+              style={{ background: "linear-gradient(135deg, #E8B923, #D4A017)", color: "#000000", boxShadow: "0 8px 30px rgba(212,160,23,0.3)" }}
+            >
+              Agenda una reunión
+            </a>
+          </div>
         </div>
 
       </div>
@@ -594,7 +583,7 @@ function DiagnosticoMockup() {
               {auditItems.map((item, i) => {
                 const s = statusColors[item.status];
                 return (
-                  <div key={item.label} className={`mockup-slide-in${inView ? " active" : ""} px-3 py-2 flex items-center gap-2.5`} style={{ transitionDelay: `${800 + i * 350}ms` }}>
+                  <div key={item.label} className={`mockup-slide-in${inView ? " active" : ""} px-3 py-2 flex items-center gap-2.5`} style={{ transitionDelay: `${500 + i * 220}ms` }}>
                     <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: s.bg }}>
                       {s.icon === "check" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={s.text} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>}
                       {s.icon === "warn" && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={s.text} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>}
@@ -609,7 +598,7 @@ function DiagnosticoMockup() {
               })}
             </div>
           </div>
-          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-3 mb-2`} style={{ background: "#F8FAFC", border: "1px solid #E2E8F0", transitionDelay: "2800ms" }}>
+          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg p-3 mb-2`} style={{ background: "#F8FAFC", border: "1px solid #E2E8F0", transitionDelay: "1700ms" }}>
             <div className="flex items-center gap-2 mb-2">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
               <span className="text-[10px] font-bold text-[#0F172A]">Salud general</span>
@@ -621,7 +610,7 @@ function DiagnosticoMockup() {
               <span className="text-xs font-extrabold text-[#F59E0B]">{inView ? "4.2/10" : ""}</span>
             </div>
           </div>
-          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg px-3 py-2 flex items-center gap-2`} style={{ background: "#191919", border: "1px solid #2A2A2A", transitionDelay: "3200ms" }}>
+          <div className={`mockup-fade-in${inView ? " active" : ""} rounded-lg px-3 py-2 flex items-center gap-2`} style={{ background: "#191919", border: "1px solid #2A2A2A", transitionDelay: "2000ms" }}>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8B923" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
             <span className="text-[10px] font-medium text-[#E8B923]">2 áreas críticas · 2 mejorables · 1 sólida</span>
           </div>
